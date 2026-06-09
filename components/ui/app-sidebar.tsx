@@ -33,29 +33,31 @@ export function AppSidebar() {
     <>
       <Sidebar
         collapsible="icon"
-        className="max-w-[18rem] bg-slate-950 text-slate-50"
+        className="max-w-[18rem] bg-slate-950 text-slate-50 "
       >
         <SidebarHeader className="space-y-2 px-4 py-4">
           <SidebarContent>
             <div className="flex items-center gap-3">
-              <SidebarMenuButton tooltip="Dashboard">
-                <HugeiconsIcon icon={Home01Icon} strokeWidth={2} />
-                {/* <Avatar>
+              <a href="/">
+                <SidebarMenuButton tooltip="Dashboard">
+                  <HugeiconsIcon icon={Home01Icon} strokeWidth={2} />
+                  {/* <Avatar>
                   <AvatarImage
                     src="https://github.com/shadcn.png"
                     alt="@jd"
                     className="grayscale"
                   />
                 </Avatar> */}
-                <div className="min-w-0 truncate group-data-[collapsible=icon]:hidden">
-                  <p className="text-sm font-semibold">
-                    John Martin Demonteverde
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    jmc.demonteverde@gmail.com
-                  </p>
-                </div>
-              </SidebarMenuButton>
+                  <div className="min-w-0 truncate group-data-[collapsible=icon]:hidden">
+                    <p className="text-sm font-semibold">
+                      John Martin Demonteverde
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      jmc.demonteverde@gmail.com
+                    </p>
+                  </div>
+                </SidebarMenuButton>
+              </a>
             </div>
           </SidebarContent>
         </SidebarHeader>
@@ -65,16 +67,20 @@ export function AppSidebar() {
             <SidebarGroupLabel className="px-2">Navigation</SidebarGroupLabel>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Dashboard">
-                  <HugeiconsIcon icon={GridIcon} strokeWidth={2} />
-                  <span>Dashboard</span>
-                </SidebarMenuButton>
+                <a href="/" className="hre">
+                  <SidebarMenuButton tooltip="Dashboard">
+                    <HugeiconsIcon icon={GridIcon} strokeWidth={2} />
+                    <span>About</span>
+                  </SidebarMenuButton>
+                </a>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Projects">
-                  <HugeiconsIcon icon={BookIcon} strokeWidth={2} />
-                  <span>Projects</span>
-                </SidebarMenuButton>
+                <a href="/projects" className="hre">
+                  <SidebarMenuButton tooltip="Projects">
+                    <HugeiconsIcon icon={BookIcon} strokeWidth={2} />
+                    <span>Projects</span>
+                  </SidebarMenuButton>
+                </a>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton tooltip="Apps">
