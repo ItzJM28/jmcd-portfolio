@@ -17,7 +17,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mt-16">
+      <div className="mt-6 sm:mt-8 md:mt-12 lg:mt-16">
         <TechStack />
       </div>
     </main>

@@ -48,7 +48,7 @@ const technologies = [
 
 export default function TechStack() {
   return (
-    <div className="grid grid-cols-4 lg:grid-cols-8 border border-border mx-20">
+    <div className="grid grid-cols-4 lg:grid-cols-8 border border-border mx-4 sm:mx-8 md:mx-12 lg:mx-20">
       {/* Header Cell */}
       <div
         className="
@@ -80,23 +80,27 @@ export default function TechStack() {
     border-r
     border-b
     border-border
-    px-2
-    py-5
+    px-1 py-3
+    sm:px-2 sm:py-4
+    lg:py-5
     transition-colors
     hover:bg-accent/10
   "
           >
-            {/* Fixed icon area */}
-            <div className="flex h-10 items-center justify-center">
+            <div className="flex h-8 sm:h-9 lg:h-10 items-center justify-center">
               <Icon
-                size={28}
-                className="transition-transform group-hover:scale-110"
+                size={20}
+                className="
+        sm:[width:24px] sm:[height:24px]
+        lg:[width:28px] lg:[height:28px]
+        transition-transform
+        group-hover:scale-110
+      "
               />
             </div>
 
-            {/* Fixed text area */}
-            <div className="mt-2 flex h-10 items-center justify-center">
-              <span className="text-center text-xs font-medium leading-tight">
+            <div className="mt-1 sm:mt-2 flex h-8 sm:h-9 lg:h-10 items-center justify-center">
+              <span className="text-[10px] sm:text-xs font-medium text-center leading-tight">
                 {tech.name}
               </span>
             </div>
