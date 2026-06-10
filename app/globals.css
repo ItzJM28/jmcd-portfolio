@@ -175,3 +175,23 @@
 }
 
 
+.icon {
+  /* Changes span from inline to inline-block so it respects width and height */
+  display: inline-block; 
+  
+  /* Set your icon size */
+  width: 18px;
+  height: 18px;
+  
+  /* Link your file path and prevent repeating */
+  background-image: url('favicon.ico');
+  background-repeat: no-repeat;
+  
+  /* Centers and scales your icon cleanly */
+  background-position: center;
+  background-size: contain; 
+  
+  /* Aligns the icon vertically with nearby text */
+  vertical-align: middle; 
+}
+

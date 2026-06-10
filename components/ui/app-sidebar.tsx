@@ -46,7 +46,8 @@ export function AppSidebar() {
                   tooltip="Dashboard"
                   className="h-auto min-h-[56px] items-start py-2"
                 >
-                  <HugeiconsIcon icon={Home01Icon} strokeWidth={2} />
+                  {/* <HugeiconsIcon icon={Home01Icon} strokeWidth={2} /> */}
+                  <span className="icon"></span>
                   {/* <Avatar>
                   <AvatarImage
                     src="https://github.com/shadcn.png"
