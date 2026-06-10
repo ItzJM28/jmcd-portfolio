@@ -15,6 +15,7 @@ import {
   Settings01Icon,
   LicenseIcon,
   WorkIcon,
+  UserArrowLeftRightIcon,
 } from "@hugeicons/core-free-icons";
 import {
   Sidebar,
@@ -75,8 +76,11 @@ export function AppSidebar() {
             <SidebarMenu>
               <SidebarMenuItem>
                 <a href="/" className="hre">
-                  <SidebarMenuButton tooltip="Dashboard">
-                    <HugeiconsIcon icon={GridIcon} strokeWidth={2} />
+                  <SidebarMenuButton tooltip="About">
+                    <HugeiconsIcon
+                      icon={UserArrowLeftRightIcon}
+                      strokeWidth={2}
+                    />
                     <span>About</span>
                   </SidebarMenuButton>
                 </a>
