@@ -17,6 +17,9 @@ import {
   PostmanIcon,
 } from "@dev.icons/react/mono";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
+
 const technologies = [
   {
     name: "TypeScript",
@@ -90,6 +93,7 @@ export default function TechStack() {
   return (
     <div className="grid grid-cols-4 lg:grid-cols-8 border border-border mx-4 sm:mx-8 md:mx-12 lg:mx-20">
       {/* Header Cell */}
+
       <div
         className="
       col-span-4
@@ -103,7 +107,18 @@ export default function TechStack() {
       uppercase
     "
       >
-        Tech Stack
+        <div className="flex items-center gap-2">
+          <HugeiconsIcon
+            icon={ArrowRight01Icon}
+            size={20}
+            color="currentColor"
+            strokeWidth={1.5}
+            className="shrink-0"
+          />
+          <span className="font-semibold tracking-wide uppercase">
+            Tech Stack
+          </span>
+        </div>
       </div>
 
       {technologies.map((tech) => {

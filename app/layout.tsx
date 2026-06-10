@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/ui/app-sidebar";
+import Navbar from "@/components/ui/navbar";
 
 const geistMonoHeading = Geist_Mono({
   subsets: ["latin"],
@@ -55,7 +56,14 @@ export default function RootLayout({
           <AppSidebar />
 
           <main className="flex-1 w-full min-w-0">
-            <SidebarTrigger />
+            <div className="flex items-center justify-center gap-4 px-4 py-4 lg:px-6">
+              <div className="flex items-center justify-center">
+                <SidebarTrigger />
+              </div>
+              <div className="flex-1 flex items-center justify-center">
+                <Navbar />
+              </div>
+            </div>
 
             {children}
           </main>

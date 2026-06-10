@@ -8,7 +8,7 @@ export const projects: Project[] = [
       "Restaurant website with responsive design and online menu.",
     image: "/hirayasgrill.png",
     featured: true,
-    liveUrl: "https://example.com",
+    liveUrl: "https://hiraya-web-app.vercel.app/",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ export const projects: Project[] = [
     title: "Inventory System",
     description:
       "Inventory management system with reporting and analytics.",
-    image: "/inventory.png",
+    image: "/hirayasgrill.png",
     liveUrl: "https://example.com",
   },
 ];
