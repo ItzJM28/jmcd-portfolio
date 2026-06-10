@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { Breadcrumbs } from "@heroui/react";
 import { TypeAnimation } from "react-type-animation";
+import ProjectsList from "@/components/ui/projects";
 
 type Props = {};
 
@@ -12,7 +12,7 @@ function Projects({}: Props) {
         <TypeAnimation
           sequence={[
             // Same substring at the start will only be typed out once, initially
-            "Projects",
+            "Projects.",
             1000,
           ]}
           wrapper="span"
@@ -20,6 +20,7 @@ function Projects({}: Props) {
           className="scroll-m-20 text-center font-extrabold tracking-tight text-balance w-fit mx-auto text-[clamp(0.5rem,3vw,2.25rem)] sm:text-lg lg:text-2xl inline-block"
           repeat={Infinity}
         />
+        <ProjectsList />
       </div>
     </div>
   );

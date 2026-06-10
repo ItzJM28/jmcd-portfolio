@@ -51,7 +51,7 @@ const UseCompiler = ({ developer }: Props) => {
               </span>
               <span>
                 <span className="text-purple-600">const</span>
-                <span className="text-blue-500"> developer </span>
+                <span className="text-blue-300"> developer </span>
                 <span className="text-foreground">=</span>
                 <span className="text-foreground"> {"{"}</span>
               </span>
@@ -63,7 +63,7 @@ const UseCompiler = ({ developer }: Props) => {
                 2
               </span>
               <span>
-                <span className="text-destructive ml-4">name</span>
+                <span className="text-red-400 ml-4">name</span>
                 <span className="text-foreground">:</span>
                 <span className="text-primary"> "{dev.name}"</span>
                 <span className="text-foreground">,</span>
@@ -76,7 +76,7 @@ const UseCompiler = ({ developer }: Props) => {
                 3
               </span>
               <span>
-                <span className="text-destructive ml-4">role</span>
+                <span className="text-red-400 ml-4">role</span>
                 <span className="text-foreground">:</span>
                 <span className="text-primary"> "{dev.role}"</span>
                 <span className="text-foreground">,</span>
@@ -89,7 +89,7 @@ const UseCompiler = ({ developer }: Props) => {
                 4
               </span>
               <span>
-                <span className="text-destructive ml-4">stack</span>
+                <span className="text-red-400 ml-4">stack</span>
                 <span className="text-foreground">:</span>
                 <span className="text-foreground"> [</span>
                 <span className="text-primary">"{dev.stack.join('", "')}"</span>
@@ -103,9 +103,9 @@ const UseCompiler = ({ developer }: Props) => {
                 5
               </span>
               <span>
-                <span className="text-destructive ml-4">status</span>
+                <span className="text-red-400 ml-4">status</span>
                 <span className="text-foreground">:</span>
-                <span className="text-sidebar-primary"> "{dev.status}"</span>
+                <span className="text-blue-300"> "{dev.status}"</span>
                 <span className="text-foreground">,</span>
               </span>
             </div>
@@ -116,9 +116,9 @@ const UseCompiler = ({ developer }: Props) => {
                 6
               </span>
               <span>
-                <span className="text-destructive ml-4">shipping</span>
+                <span className="text-red-400 ml-4">shipping</span>
                 <span className="text-foreground">:</span>
-                <span className="text-sidebar-primary">
+                <span className="text-blue-300">
                   {" "}
                   {dev.shipping ? "true" : "false"}
                 </span>

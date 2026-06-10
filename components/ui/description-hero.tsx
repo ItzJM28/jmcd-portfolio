@@ -1,6 +1,7 @@
 import React from "react";
 import { GithubIcon, Github } from "@dev.icons/react/mono";
 import { Card, Link } from "@heroui/react";
+import { Badge } from "@/components/ui/badge";
 
 type Props = {
   className?: string;
@@ -26,10 +27,13 @@ function DescriptionHero({ className }: Props) {
             target="_blank"
             className="flex items-center gap-2 text-sm font-medium"
           >
-            <div className="text-white">
-              <GithubIcon size={15} />
-            </div>
-            Creator Hub
+            <Badge variant="outline" className="mt-1 h-fit">
+              <div className="text-white">
+                <GithubIcon size={15} />
+              </div>
+              Creator Hub
+            </Badge>
+
             {/* <Link.Icon aria-hidden="true" /> */}
           </Link>
         </Card.Footer>
