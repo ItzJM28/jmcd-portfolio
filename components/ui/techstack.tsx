@@ -7,6 +7,14 @@ import {
   _React,
   _Vue,
   Html5,
+  Javascript,
+  Css,
+  MongodbIcon,
+  Postgresql,
+  Php,
+  GitIcon,
+  Python,
+  PostmanIcon,
 } from "@dev.icons/react/mono";
 
 const technologies = [
@@ -43,6 +51,38 @@ const technologies = [
   {
     name: "HTML5",
     icon: Html5,
+  },
+  {
+    name: "Javascript",
+    icon: Javascript,
+  },
+  {
+    name: "CSS",
+    icon: Css,
+  },
+  {
+    name: "Mongodb",
+    icon: MongodbIcon,
+  },
+  {
+    name: "PostgreSQL",
+    icon: Postgresql,
+  },
+  {
+    name: "PHP",
+    icon: Php,
+  },
+  {
+    name: "Git",
+    icon: GitIcon,
+  },
+  {
+    name: "Python",
+    icon: Python,
+  },
+  {
+    name: "Postman",
+    icon: PostmanIcon,
   },
 ];
 
