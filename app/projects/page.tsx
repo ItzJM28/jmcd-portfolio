@@ -1,23 +1,27 @@
+"use client";
 import React from "react";
 import { Breadcrumbs } from "@heroui/react";
+import { TypeAnimation } from "react-type-animation";
 
 type Props = {};
 
 function Projects({}: Props) {
   return (
-    <main className="min-h-screen flex items-center justify-center px-4 py-10 sm:px-6 lg:px-8">
-      <div className="w-full max-w-4xl px-2 sm:px-0">
-        <h1
-          className="scroll-m-20 text-center text-3xl font-extrabold tracking-tight text-balance typewriter sm:text-4xl md:text-5xl"
-          style={{
-            ["--typing-duration" as any]: "1.5s",
-            ["--typing-steps" as any]: "9",
-          }}
-        >
-          Projects.
-        </h1>
+    <div className="flex flex-col lg:flex-row items-start w-full">
+      <div className="w-full ml-4 sm:ml-8 md:ml-12 lg:ml-20">
+        <TypeAnimation
+          sequence={[
+            // Same substring at the start will only be typed out once, initially
+            "Projects",
+            1000,
+          ]}
+          wrapper="span"
+          speed={50}
+          className="scroll-m-20 text-center font-extrabold tracking-tight text-balance w-fit mx-auto text-[clamp(0.5rem,3vw,2.25rem)] sm:text-lg lg:text-2xl inline-block"
+          repeat={Infinity}
+        />
       </div>
-    </main>
+    </div>
   );
 }
 

@@ -1,15 +1,18 @@
 "use client";
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
+import { Badge } from "@/components/ui/badge";
 
 type Props = {};
 
 function HeaderTop({}: Props) {
   return (
     <div className="w-full ml-4 sm:ml-8 md:ml-12 lg:ml-20">
-      <h1 className="text-[clamp(0.5rem,3vw,2.25rem)] sm:text-lg lg:text-2xl">
-        Hello, I'm John Martin Demonteverde.
-      </h1>
+      <div className="flex items-center gap-3">
+        <h1 className="leading-none text-[clamp(0.5rem,3vw,2.25rem)] sm:text-lg lg:text-2xl">
+          Hello, I'm John Martin Demonteverde.
+        </h1>
+      </div>
 
       <TypeAnimation
         sequence={[

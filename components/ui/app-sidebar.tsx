@@ -28,6 +28,8 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
+import { Badge } from "@/components/ui/badge";
+
 export function AppSidebar() {
   return (
     <>
@@ -39,7 +41,10 @@ export function AppSidebar() {
           <SidebarContent>
             <div className="flex items-center gap-3">
               <a href="/">
-                <SidebarMenuButton tooltip="Dashboard">
+                <SidebarMenuButton
+                  tooltip="Dashboard"
+                  className="h-auto min-h-[56px] items-start py-2"
+                >
                   <HugeiconsIcon icon={Home01Icon} strokeWidth={2} />
                   {/* <Avatar>
                   <AvatarImage
@@ -48,13 +53,15 @@ export function AppSidebar() {
                     className="grayscale"
                   />
                 </Avatar> */}
-                  <div className="min-w-0 truncate group-data-[collapsible=icon]:hidden">
+                  <div className="min-w-0 group-data-[collapsible=icon]:hidden">
                     <p className="text-sm font-semibold">
                       John Martin Demonteverde
                     </p>
-                    <p className="text-xs text-muted-foreground">
-                      jmc.demonteverde@gmail.com
-                    </p>
+
+                    <Badge variant="outline" className="mt-1 h-fit">
+                      <span className="text-green-500">•</span>
+                      Open to Work
+                    </Badge>
                   </div>
                 </SidebarMenuButton>
               </a>

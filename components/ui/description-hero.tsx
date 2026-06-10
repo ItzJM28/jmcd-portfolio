@@ -9,10 +9,10 @@ type Props = {
 function DescriptionHero({ className }: Props) {
   return (
     <main className={className}>
-      <Card className="w-full max-w-[400px] ml-4 sm:ml-8 md:ml-12 lg:ml-20">
+      <Card className="w-full max-w-[1500px] ml-4 sm:ml-8 md:ml-12 lg:ml-20">
         <Card.Header>
           {/* <Card.Title>Become an Acme Creator!</Card.Title> */}
-          <Card.Description className="text-[clamp(0.6rem,1.5vw,1rem)] text-muted-foreground leading-relaxed max-w-prose">
+          <Card.Description className="text-[clamp(0.6rem,1.5vw,1rem)] text-muted-foreground leading-relaxed max-w-prose mt-4">
             Passionate about building modern, responsive, and user-friendly web
             applications. Focused on creating seamless digital experiences that
             combine performance, functionality, and thoughtful design.
