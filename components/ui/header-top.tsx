@@ -5,9 +5,9 @@ import { TypeAnimation } from "react-type-animation";
 function HeaderTop() {
   return (
     <div className="w-full min-w-0">
-      <h1 className="mx-auto max-w-3xl text-pretty text-3xl font-thin leading-tight sm:text-4xl md:text-5xl xl:mx-0">
+      <h1 className="mx-auto max-w-3xl text-pretty text-3xl font-thin leading-tight sm:text-3xl md:text-4xl xl:mx-0">
         Hello, I&apos;m
-        <span className="text-violet-500 font-medium">
+        <span className="text-violet-500 font-semibold">
           {" "}
           John Martin Demonteverde
         </span>
