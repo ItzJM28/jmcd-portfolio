@@ -1,26 +1,25 @@
-import React from "react";
+import Link from "next/link";
+import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
-import { Menu } from "lucide-react";
-
-type Props = {};
-
-function MobileNavbar() {
+export default function MobileNavbar() {
   return (
-    <div className="flex items-center justify-between w-full p-4">
+    <div className="flex w-full items-center justify-between p-4">
       <div className="font-bold">JM</div>
 
       <Sheet>
-        <SheetTrigger>
+        <SheetTrigger aria-label="Open navigation">
           <Menu className="h-6 w-6" />
         </SheetTrigger>
 
         <SheetContent side="right">
-          <div className="flex flex-col gap-4 mt-8">
-            <a href="/">About</a>
-            <a href="/projects">Projects</a>
-            <a href="/resume">Resume</a>
-            <a href="https://github.com/ItzJM28">GitHub</a>
+          <div className="mt-8 flex flex-col gap-4">
+            <Link href="/">About</Link>
+            <Link href="/projects">Projects</Link>
+            <Link href="/resume">Resume</Link>
+            <a href="https://github.com/ItzJM28" target="_blank" rel="noreferrer">
+              GitHub
+            </a>
           </div>
         </SheetContent>
       </Sheet>

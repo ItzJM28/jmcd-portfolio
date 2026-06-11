@@ -9,25 +9,25 @@ type Props = {
 
 function DescriptionHero({ className }: Props) {
   return (
-    <main className={className}>
-      <Card className="w-full max-w-3xl mx-auto xl:mx-0">
-        <Card.Header>
-          <Card.Description className="text-[clamp(1rem,1vw+0.75rem,1.35rem)] text-muted-foreground leading-relaxed max-w-prose mt-4 text-center xl:text-left">
+    <section className={className}>
+      <Card className="mx-auto mt-5 w-full max-w-3xl border-border/80 bg-card/70 shadow-sm xl:mx-0">
+        <Card.Header className="px-4 pt-5 sm:px-6">
+          <Card.Description className="mx-auto max-w-2xl text-pretty text-center text-base leading-7 text-muted-foreground sm:text-lg xl:mx-0 xl:text-left">
             Passionate about building modern, responsive, and user-friendly web
             applications. Focused on creating seamless digital experiences that
             combine performance, functionality, and thoughtful design.
           </Card.Description>
         </Card.Header>
 
-        <Card.Footer className="mt-4 justify-center xl:justify-start">
+        <Card.Footer className="justify-center px-4 pb-5 pt-2 sm:px-6 xl:justify-start">
           <Link
             aria-label="Go to Creator Hub (opens in new tab)"
             href="https://github.com/ItzJM28?tab=repositories"
             rel="noopener noreferrer"
             target="_blank"
-            className="flex items-center gap-2 text-sm font-medium"
+            className="inline-flex items-center gap-2 text-sm font-medium"
           >
-            <Badge variant="outline" className="mt-1 h-fit">
+            <Badge variant="outline" className="h-9 gap-2 px-3">
               <div className="text-white">
                 <GithubIcon size={15} />
               </div>
@@ -36,7 +36,7 @@ function DescriptionHero({ className }: Props) {
           </Link>
         </Card.Footer>
       </Card>
-    </main>
+    </section>
   );
 }
 

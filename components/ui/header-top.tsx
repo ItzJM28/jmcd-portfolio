@@ -1,15 +1,12 @@
 "use client";
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
-import { Badge } from "@/components/ui/badge";
 
-type Props = {};
-
-function HeaderTop({}: Props) {
+function HeaderTop() {
   return (
-    <div className="w-full px-2 sm:px-0">
-      <h1 className="leading-tight font-thin text-[clamp(1.25rem,3vw,2.75rem)]">
-        Hello, I'm
+    <div className="w-full min-w-0">
+      <h1 className="mx-auto max-w-3xl text-pretty text-3xl font-thin leading-tight sm:text-4xl md:text-5xl xl:mx-0">
+        Hello, I&apos;m
         <span className="text-violet-500"> John Martin Demonteverde</span>.
       </h1>
       <TypeAnimation
@@ -17,7 +14,7 @@ function HeaderTop({}: Props) {
         wrapper="span"
         speed={50}
         repeat={Infinity}
-        className=" mt-2 block font-extrabold tracking-tight text-[clamp(1.25rem,4vw,3rem)] min-h-[3.5rem] max-w-full break-words"
+        className="mt-3 block min-h-16 max-w-full text-pretty text-2xl font-extrabold tracking-normal sm:text-4xl md:min-h-20 md:text-5xl"
       />
     </div>
   );

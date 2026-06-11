@@ -11,10 +11,18 @@ import {
   Css,
   MongodbIcon,
   Postgresql,
+  Express,
   Php,
+  CodeigniterIcon,
   GitIcon,
   Python,
   PostmanIcon,
+  VisualStudio,
+  VisualStudioCode,
+  Figma,
+  GithubIcon,
+  VercelIcon,
+  GoogleCloud,
 } from "@dev.icons/react/mono";
 
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -33,7 +41,7 @@ type TechCategory = {
 };
 
 const frontend: TechCategory = {
-  label: "Frontend",
+  label: "Front End",
   items: [
     { name: "TypeScript", icon: TypescriptIcon, color: "text-blue-500" },
     { name: "JavaScript", icon: Javascript, color: "text-yellow-400" },
@@ -47,36 +55,46 @@ const frontend: TechCategory = {
   ],
 };
 
-const sideCategories: TechCategory[] = [
-  {
-    label: "Backend",
-    items: [
-      { name: "Node.js", icon: NodejsIcon, color: "text-green-500" },
-      { name: "PHP", icon: Php, color: "text-indigo-500" },
-      { name: "Python", icon: Python, color: "text-yellow-500" },
-    ],
-  },
-  {
-    label: "Database",
-    items: [
-      { name: "PostgreSQL", icon: Postgresql, color: "text-sky-500" },
-      { name: "MongoDB", icon: MongodbIcon, color: "text-green-600" },
-    ],
-  },
-  {
-    label: "Tools",
-    items: [
-      { name: "Git", icon: GitIcon, color: "text-orange-600" },
-      { name: "Postman", icon: PostmanIcon, color: "text-orange-500" },
-    ],
-  },
-];
+const backend: TechCategory = {
+  label: "Back End",
+  items: [
+    { name: "Node.js", icon: NodejsIcon, color: "text-green-500" },
+    { name: "Express.js", icon: Express, color: "text-foreground" },
+    { name: "PHP", icon: Php, color: "text-indigo-500" },
+    { name: "CodeIgniter", icon: CodeigniterIcon, color: "text-orange-500" },
+    { name: "Python", icon: Python, color: "text-yellow-500" },
+  ],
+};
+
+const database: TechCategory = {
+  label: "Database",
+  items: [
+    { name: "PostgreSQL", icon: Postgresql, color: "text-sky-500" },
+    { name: "MongoDB", icon: MongodbIcon, color: "text-green-600" },
+  ],
+};
+
+const tools: TechCategory = {
+  label: "Tools",
+  items: [
+    { name: "Git", icon: GitIcon, color: "text-orange-600" },
+    { name: "Postman", icon: PostmanIcon, color: "text-orange-500" },
+    { name: "VS Code", icon: VisualStudioCode, color: "text-blue-500" },
+    { name: "Visual Studio", icon: VisualStudio, color: "text-violet-500" },
+    { name: "Figma", icon: Figma, color: "text-pink-500" },
+    { name: "GitHub", icon: GithubIcon, color: "text-foreground" },
+    { name: "Vercel", icon: VercelIcon, color: "text-foreground" },
+    { name: "Google Cloud", icon: GoogleCloud, color: "text-sky-500" },
+  ],
+};
+
+const categories = [frontend, backend, database, tools];
 
 export default function TechStack() {
   return (
-    <section className="mx-2 sm:mx-3 md:mx-4 lg:mx-7">
-      <div className="overflow-hidden border border-border bg-background">
-        <div className="border-b border-border px-4 py-3 font-semibold uppercase tracking-wide">
+    <section className="mx-auto w-full max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
+      <div className="overflow-hidden rounded-lg border border-border bg-background">
+        <div className="flex flex-col gap-2 border-b border-border px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-5">
           <div className="flex items-center gap-2">
             <HugeiconsIcon
               icon={ArrowRight01Icon}
@@ -89,20 +107,24 @@ export default function TechStack() {
               Tech Stack
             </span>
           </div>
+          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+            {categories.reduce(
+              (total, category) => total + category.items.length,
+              0,
+            )}{" "}
+            technologies
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr]">
-          <div className="border-b border-border lg:border-b-0 lg:border-r">
-            <TechCategory category={frontend} columns={3} />
+        <div className="space-y-5  p-4 sm:space-y-6 sm:p-6">
+          <TechCategory category={frontend} size="wide" />
+
+          <div className="grid gap-5 sm:gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+            <TechCategory category={backend} />
+            <TechCategory category={database} compact />
           </div>
 
-          <div className="grid">
-            {sideCategories.map((category) => (
-              <div key={category.label} className="border-b border-border last:border-b-0">
-                <TechCategory category={category} columns={3} compact />
-              </div>
-            ))}
-          </div>
+          <TechCategory category={tools} size="wide" />
         </div>
       </div>
     </section>
@@ -111,55 +133,40 @@ export default function TechStack() {
 
 type TechCategoryProps = {
   category: TechCategory;
-  columns: 2 | 3;
   compact?: boolean;
+  size?: "default" | "wide";
 };
 
-function TechCategory({ category, columns, compact = false }: TechCategoryProps) {
-  const gridColumns = columns === 2 ? "grid-cols-2" : "grid-cols-3";
-  const cellHeight = compact
-    ? "min-h-[126px] sm:min-h-[144px] lg:min-h-[136px]"
-    : "min-h-[132px] sm:min-h-[154px] lg:min-h-[166px]";
-
+function TechCategory({
+  category,
+  compact = false,
+  size = "default",
+}: TechCategoryProps) {
   return (
-    <>
-      <div className="border-b border-border px-4 py-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+    <section className="border border-border bg-muted/10 px-4 py-5 sm:px-6 sm:py-6">
+      <h3 className="text-center text-2xl font-medium uppercase tracking-normal text-foreground sm:text-3xl">
         {category.label}
-      </div>
+      </h3>
 
-      <div className={`grid ${gridColumns}`}>
-        {Array.from({
-          length: Math.ceil(category.items.length / columns) * columns,
-        }).map((_, index) => {
-          const tech = category.items[index];
-          const isLastColumn = (index + 1) % columns === 0;
-          const isLastRow =
-            index >=
-            Math.ceil(category.items.length / columns) * columns - columns;
-
+      <div
+        className={[
+          "mt-5 flex flex-wrap items-start justify-center",
+          compact ? "gap-6 sm:gap-10" : "gap-4 sm:gap-6",
+          size === "wide" ? "lg:gap-8" : "",
+        ].join(" ")}
+      >
+        {category.items.map((tech) => {
           return (
-            <div
-              key={tech?.name ?? `${category.label}-empty-${index}`}
-              className={[
-                "group flex flex-col items-center justify-center px-3 py-5 text-center transition-colors hover:bg-accent/10",
-                cellHeight,
-                !isLastColumn ? "border-r border-border" : "",
-                !isLastRow ? "border-b border-border" : "",
-              ].join(" ")}
-            >
-              {tech ? (
-                <TechItem
-                  icon={tech.icon}
-                  name={tech.name}
-                  color={tech.color}
-                  compact={compact}
-                />
-              ) : null}
-            </div>
+            <TechItem
+              key={tech.name}
+              icon={tech.icon}
+              name={tech.name}
+              color={tech.color}
+            />
           );
         })}
       </div>
-    </>
+    </section>
   );
 }
 
@@ -167,20 +174,21 @@ type TechItemProps = {
   icon: Tech["icon"];
   name: string;
   color: string;
-  compact: boolean;
 };
 
-function TechItem({ icon: Icon, name, color, compact }: TechItemProps) {
+function TechItem({ icon: Icon, name, color }: TechItemProps) {
   return (
-    <>
-      <Icon
-        size={compact ? 26 : 30}
-        className={`${color} transition-transform group-hover:scale-110`}
-      />
+    <div className="group flex w-20 flex-col items-center gap-2 text-center sm:w-24">
+      <div className="flex size-14 items-center justify-center border border-border bg-background transition-colors group-hover:bg-accent/10 sm:size-16">
+        <Icon
+          size={30}
+          className={`${color} transition-transform group-hover:scale-110`}
+        />
+      </div>
 
-      <span className="mt-3 text-xs font-semibold leading-tight text-foreground">
+      <span className="text-xs font-semibold leading-tight text-foreground">
         {name}
       </span>
-    </>
+    </div>
   );
 }

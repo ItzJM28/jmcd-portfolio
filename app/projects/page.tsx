@@ -1,28 +1,21 @@
 "use client";
-import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import ProjectsList from "@/components/ui/projects";
 
-type Props = {};
-
-function Projects({}: Props) {
+function Projects() {
   return (
-    <div className="flex flex-col lg:flex-row items-start w-full">
-      <div className="w-full ml-4 sm:ml-8 md:ml-12 lg:ml-20">
+    <main className="w-full px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
+      <section className="mx-auto w-full max-w-7xl">
         <TypeAnimation
-          sequence={[
-            // Same substring at the start will only be typed out once, initially
-            "Projects.",
-            1000,
-          ]}
+          sequence={["Projects.", 1000]}
           wrapper="span"
           speed={50}
-          className="scroll-m-20 text-center font-extrabold tracking-tight text-balance w-fit mx-auto text-[clamp(0.5rem,3vw,2.25rem)] sm:text-lg lg:text-2xl inline-block"
+          className="mx-auto block w-fit scroll-m-20 text-center text-3xl font-extrabold tracking-normal sm:text-4xl"
           repeat={Infinity}
         />
         <ProjectsList />
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 

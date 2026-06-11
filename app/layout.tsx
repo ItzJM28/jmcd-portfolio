@@ -51,15 +51,15 @@ export default function RootLayout({
         geistMonoHeading.variable,
       )}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full overflow-x-hidden flex flex-col">
         <SidebarProvider>
           <AppSidebar />
 
-          <main className="flex-1 min-w-0">
-            <div className="flex items-center gap-3 px-4 sm:px-6 py-4">
+          <main className="flex-1 min-w-0 w-full">
+            <div className="sticky top-0 z-30 flex items-center gap-3 border-b border-border/70 bg-background/90 px-3 py-3 backdrop-blur sm:px-5 lg:px-7">
               <SidebarTrigger className="shrink-0" />
 
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 min-w-0 overflow-x-auto">
                 <Navbar />
               </div>
             </div>

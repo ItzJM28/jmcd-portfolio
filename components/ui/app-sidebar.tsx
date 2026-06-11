@@ -72,7 +72,7 @@ export function AppSidebar() {
               variant="outline"
               className="mt-3 border-blue-500/30 bg-blue-950"
             >
-              <span className="mr-1 text-blue-500">●</span>
+              <span className="mr-1 text-blue-500">Available</span>
               Open to Work
             </Badge>
           </div>
@@ -158,7 +158,7 @@ export function AppSidebar() {
       <SidebarFooter className="border-t border-slate-800 px-3 py-3 sm:px-4 sm:py-4">
         <div className="mt-1 w-full group-data-[collapsible=icon]:hidden">
           <Link
-            href="/resume.pdf"
+            href="/Resume_Demonteverde.pdf"
             target="_blank"
             download
             className="block w-full"

@@ -12,10 +12,6 @@ export default function ExampleNavigationMenu() {
     defaultMatches: true,
   });
 
-  const isMobile = useMediaQuery("(max-width: 768px)", {
-    defaultMatches: false,
-  });
-
   return (
     <NavigationMenu.Root className={styles.Root}>
       <NavigationMenu.List className={styles.List}>
