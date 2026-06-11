@@ -577,3 +577,62 @@
     }
   }
 }
+
+
+.Root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+.List {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+  flex-wrap: wrap;
+}
+
+.Trigger {
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  padding: clamp(0.5rem, 1vw, 0.75rem)
+           clamp(0.75rem, 1.5vw, 1rem);
+  white-space: nowrap;
+}
+.Content {
+  width: min(90vw, 800px);
+  max-width: 100%;
+}
+
+.GuidesContent {
+  width: min(90vw, 900px);
+}
+
+.SubmenuLayout {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 700px) {
+  .SubmenuLayout {
+    flex-direction: column;
+  }
+
+  .SubmenuList {
+    width: 100%;
+  }
+
+  .SubmenuViewport {
+    width: 100%;
+  }
+}
+
+.LinkList {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(220px, 1fr)
+  );
+  gap: 1rem;
+}

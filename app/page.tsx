@@ -6,18 +6,20 @@ import TechStack from "@/components/ui/techstack";
 export default function Home() {
   return (
     <main className="w-full">
-      <div className="flex flex-col lg:flex-row items-start w-full">
-        <div className="flex-1 min-w-0">
+      <div className="mx-auto flex flex-col xl:flex-row items-center xl:items-center justify-center gap-8 md:gap-12 xl:gap-16 w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12">
+        {/* Left Content */}
+        <div className="w-full xl:flex-1 max-w-2xl text-center xl:text-left">
           <HeaderTop />
           <DescriptionHero />
         </div>
 
-        <div className="hidden lg:block ml-20 mr-12 flex-shrink-0">
+        {/* Compiler */}
+        <div className="w-full xl:flex-1 max-w-2xl">
           <UseCompiler />
         </div>
       </div>
 
-      <div className="mt-6 sm:mt-8 md:mt-12 lg:mt-16">
+      <div className="mt-8 md:mt-12 lg:mt-16">
         <TechStack />
       </div>
     </main>

@@ -6,15 +6,11 @@ import { Button } from "@/components/ui/button";
 
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
-  BookIcon,
-  LicenseIcon,
-  Settings01Icon,
-  UserArrowLeftRightIcon,
-  WorkIcon,
-  Mail01Icon,
+  ArrowBigLeftDashIcon,
   Call02Icon,
   Globe02Icon,
   Location01Icon,
+  Mail01Icon,
 } from "@hugeicons/core-free-icons";
 
 import {
@@ -24,32 +20,51 @@ import {
   SidebarGroup,
   SidebarGroupLabel,
   SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
+  useSidebar,
 } from "@/components/ui/sidebar";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
 import { Badge } from "@/components/ui/badge";
 
 export function AppSidebar() {
+  const { setOpen, setOpenMobile, isMobile } = useSidebar();
+
+  const closeSidebar = () => {
+    if (isMobile) {
+      setOpenMobile(false);
+    } else {
+      setOpen(false);
+    }
+  };
+
   return (
-    <Sidebar className="max-w-[18rem] bg-slate-950 text-slate-50 border-r border-slate-800">
-      {/* Header */}
-      <SidebarHeader className="border-b border-slate-800">
-        <div className="flex flex-col items-center px-4 py-6 text-center">
-          <Avatar className="h-24 w-24 group-data-[collapsible=icon]:hidden">
+    <Sidebar className="w-[min(18rem,85vw)] max-w-[18rem] bg-slate-950 text-slate-50 border-r border-slate-800">
+      <SidebarHeader className="relative border-b border-slate-800">
+        <button
+          type="button"
+          onClick={closeSidebar}
+          className="absolute right-3 top-3 z-50 flex h-10 w-10 items-center justify-center rounded-md text-slate-400 transition hover:bg-slate-800 hover:text-slate-50"
+          aria-label="Close Sidebar"
+        >
+          <HugeiconsIcon
+            icon={ArrowBigLeftDashIcon}
+            size={20}
+            strokeWidth={2}
+          />
+        </button>
+
+        <div className="flex flex-col items-center px-4 pb-5 pt-12 text-center sm:px-5 sm:pb-6">
+          <Avatar className="h-20 w-20 sm:h-24 sm:w-24 group-data-[collapsible=icon]:hidden">
             <AvatarImage src="/profile.jpg" alt="John Martin Demonteverde" />
             <AvatarFallback>JM</AvatarFallback>
           </Avatar>
 
           <div className="mt-4 group-data-[collapsible=icon]:hidden">
-            <h2 className="text-base font-bold leading-tight">
+            <h2 className="text-sm font-bold leading-tight sm:text-base">
               John Martin Demonteverde
             </h2>
 
-            <p className="mt-1 text-sm text-slate-400">
+            <p className="mt-1 text-xs text-slate-400 sm:text-sm">
               Software Engineer & Front-End Developer
             </p>
 
@@ -64,13 +79,11 @@ export function AppSidebar() {
         </div>
       </SidebarHeader>
 
-      {/* Content */}
-      <SidebarContent className="overflow-y-auto">
-        {/* Identity */}
+      <SidebarContent className="min-h-0 overflow-y-auto px-1 pb-2">
         <SidebarGroup>
           <SidebarGroupLabel>Identity</SidebarGroupLabel>
 
-          <div className="space-y-3 px-3 py-2 text-sm group-data-[collapsible=icon]:hidden">
+          <div className="space-y-2 px-3 py-1.5 text-xs sm:space-y-3 sm:py-2 sm:text-sm group-data-[collapsible=icon]:hidden">
             <div className="flex items-center gap-2">
               <HugeiconsIcon icon={Location01Icon} size={16} strokeWidth={2} />
               <span>Bacolod City, Philippines</span>
@@ -93,7 +106,6 @@ export function AppSidebar() {
           </div>
         </SidebarGroup>
 
-        {/* Languages */}
         <SidebarGroup>
           <SidebarGroupLabel>Languages</SidebarGroupLabel>
 
@@ -110,7 +122,6 @@ export function AppSidebar() {
           </div>
         </SidebarGroup>
 
-        {/* Contact */}
         <SidebarGroup>
           <SidebarGroupLabel>Contact</SidebarGroupLabel>
 
@@ -131,7 +142,6 @@ export function AppSidebar() {
           </div>
         </SidebarGroup>
 
-        {/* Skills */}
         <SidebarGroup>
           <SidebarGroupLabel>Tech Stack</SidebarGroupLabel>
 
@@ -145,8 +155,7 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      {/* Footer */}
-      <SidebarFooter className="border-t border-slate-800 px-4 py-4">
+      <SidebarFooter className="border-t border-slate-800 px-3 py-3 sm:px-4 sm:py-4">
         <div className="mt-1 w-full group-data-[collapsible=icon]:hidden">
           <Link
             href="/resume.pdf"
@@ -160,9 +169,9 @@ export function AppSidebar() {
             </Button>
           </Link>
         </div>
+
         <div className="group-data-[collapsible=icon]:hidden">
           <p className="text-xs text-slate-500">Developed by</p>
-
           <p className="mt-1 text-sm font-semibold">JMCD</p>
         </div>
       </SidebarFooter>

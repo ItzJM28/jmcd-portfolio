@@ -7,17 +7,17 @@ type Props = {};
 
 function HeaderTop({}: Props) {
   return (
-    <div className="w-full max-w-5xl ml-4 sm:ml-8 md:ml-12 lg:ml-20">
-      <h1 className="leading-tight font-bold text-[clamp(1.75rem,5vw,4.5rem)]">
-        Hello, I'm John Martin Demonteverde.
+    <div className="w-full px-2 sm:px-0">
+      <h1 className="leading-tight font-thin text-[clamp(1.25rem,3vw,2.75rem)]">
+        Hello, I'm
+        <span className="text-violet-500"> John Martin Demonteverde</span>.
       </h1>
-
       <TypeAnimation
-        sequence={["Software Engineer", 1000, "Front-End Developer", 1000]}
+        sequence={["Software Engineer.", 2000, "Front-End Developer.", 2000]}
         wrapper="span"
         speed={50}
         repeat={Infinity}
-        className="mt-2 inline-block font-extrabold tracking-tight text-primary text-[clamp(1.75rem,5vw,4.5rem)] "
+        className="mt-2 inline-block font-extrabold tracking-tight text-[clamp(1.75rem,5vw,4rem)]"
       />
     </div>
   );

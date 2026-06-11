@@ -24,68 +24,82 @@ const technologies = [
   {
     name: "TypeScript",
     icon: TypescriptIcon,
-  },
-
-  {
-    name: "Next.js",
-    icon: NextjsIcon,
-  },
-
-  {
-    name: "Node.js",
-    icon: NodejsIcon,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: TailwindIcon,
-  },
-  {
-    name: "Angular",
-    icon: AngularIcon,
-  },
-  {
-    name: "React",
-    icon: _React,
-  },
-  {
-    name: "Vue.js",
-    icon: _Vue,
-  },
-  {
-    name: "HTML5",
-    icon: Html5,
+    color: "text-blue-500",
   },
   {
     name: "Javascript",
     icon: Javascript,
+    color: "text-yellow-400",
+  },
+  {
+    name: "React",
+    icon: _React,
+    color: "text-cyan-400",
+  },
+  {
+    name: "Next.js",
+    icon: NextjsIcon,
+    color: "text-white",
+  },
+  {
+    name: "Vue.js",
+    icon: _Vue,
+    color: "text-green-500",
+  },
+  {
+    name: "Angular",
+    icon: AngularIcon,
+    color: "text-red-600",
+  },
+  {
+    name: "HTML5",
+    icon: Html5,
+    color: "text-orange-500",
   },
   {
     name: "CSS",
     icon: Css,
+    color: "text-blue-500",
   },
   {
-    name: "Mongodb",
-    icon: MongodbIcon,
+    name: "Tailwind CSS",
+    icon: TailwindIcon,
+    color: "text-cyan-400",
   },
   {
-    name: "PostgreSQL",
-    icon: Postgresql,
+    name: "Node.js",
+    icon: NodejsIcon,
+    color: "text-green-500",
   },
   {
     name: "PHP",
     icon: Php,
-  },
-  {
-    name: "Git",
-    icon: GitIcon,
+    color: "text-indigo-500",
   },
   {
     name: "Python",
     icon: Python,
+    color: "text-yellow-500",
+  },
+  {
+    name: "PostgreSQL",
+    icon: Postgresql,
+    color: "text-sky-500",
+  },
+  {
+    name: "Mongodb",
+    icon: MongodbIcon,
+    color: "text-green-600",
+  },
+  {
+    name: "Git",
+    icon: GitIcon,
+    color: "text-orange-600",
   },
   {
     name: "Postman",
     icon: PostmanIcon,
+    color: "text-orange-500",
   },
 ];
 
@@ -115,7 +129,7 @@ export default function TechStack() {
             strokeWidth={1.5}
             className="shrink-0"
           />
-          <span className="font-semibold tracking-wide uppercase">
+          <span className="font-semibold text-green-500 tracking-wide uppercase">
             Tech Stack
           </span>
         </div>
@@ -145,12 +159,13 @@ export default function TechStack() {
             <div className="flex h-8 sm:h-9 lg:h-10 items-center justify-center">
               <Icon
                 size={20}
-                className="
-        sm:[width:24px] sm:[height:24px]
-        lg:[width:28px] lg:[height:28px]
-        transition-transform
-        group-hover:scale-110
-      "
+                className={`
+    ${tech.color}
+    sm:[width:24px] sm:[height:24px]
+    lg:[width:28px] lg:[height:28px]
+    transition-transform
+    group-hover:scale-110
+  `}
               />
             </div>
 

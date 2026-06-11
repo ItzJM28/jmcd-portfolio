@@ -55,12 +55,11 @@ export default function RootLayout({
         <SidebarProvider>
           <AppSidebar />
 
-          <main className="flex-1 w-full min-w-0">
-            <div className="flex items-center justify-center gap-4 px-4 py-4 lg:px-6">
-              <div className="flex items-center justify-center">
-                <SidebarTrigger />
-              </div>
-              <div className="flex-1 flex items-center justify-center">
+          <main className="flex-1 min-w-0">
+            <div className="flex items-center gap-3 px-4 sm:px-6 py-4">
+              <SidebarTrigger className="shrink-0" />
+
+              <div className="flex-1 min-w-0">
                 <Navbar />
               </div>
             </div>
