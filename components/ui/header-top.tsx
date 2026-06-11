@@ -7,10 +7,21 @@ function HeaderTop() {
     <div className="w-full min-w-0">
       <h1 className="mx-auto max-w-3xl text-pretty text-3xl font-thin leading-tight sm:text-4xl md:text-5xl xl:mx-0">
         Hello, I&apos;m
-        <span className="text-violet-500"> John Martin Demonteverde</span>.
+        <span className="text-violet-500 font-medium">
+          {" "}
+          John Martin Demonteverde
+        </span>
+        .
       </h1>
       <TypeAnimation
-        sequence={["Software Engineer.", 2000, "Front-End Developer.", 2000]}
+        sequence={[
+          "Software Engineer.",
+          2000,
+          "Web Developer.",
+          200,
+          "Graphic Designer.",
+          20000,
+        ]}
         wrapper="span"
         speed={50}
         repeat={Infinity}
