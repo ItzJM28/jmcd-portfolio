@@ -24,7 +24,7 @@ function DescriptionHero({ className }: Props) {
         <Card.Footer className="justify-center px-4 pb-5 pt-2 sm:px-6 xl:justify-start">
           <Link
             aria-label="Go to Creator Hub (opens in new tab)"
-            href="https://github.com/ItzJM28?tab=repositories"
+            href="https://www.linkedin.com/in/johnmarts/"
             rel="noopener noreferrer"
             target="_blank"
             className="inline-flex items-center gap-2 text-sm font-medium"
