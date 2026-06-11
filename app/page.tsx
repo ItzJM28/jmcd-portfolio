@@ -6,7 +6,7 @@ import TechStack from "@/components/ui/techstack";
 export default function Home() {
   return (
     <main className="w-full">
-      <div className="mx-auto flex flex-col xl:flex-row items-center xl:items-center justify-center gap-8 md:gap-12 xl:gap-16 w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12">
+      <div className="mx-auto flex flex-col xl:flex-row items-center xl:items-center justify-center gap-8 md:gap-12 xl:gap-16 w-full max-w-7xl px-2 sm:px-3 md:px-4 lg:px-7">
         {/* Left Content */}
         <div className="w-full xl:flex-1 max-w-2xl text-center xl:text-left">
           <HeaderTop />

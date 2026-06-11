@@ -48,7 +48,7 @@ export function AppSidebar() {
         >
           <HugeiconsIcon
             icon={ArrowBigLeftDashIcon}
-            size={20}
+            size={14}
             strokeWidth={2}
           />
         </button>

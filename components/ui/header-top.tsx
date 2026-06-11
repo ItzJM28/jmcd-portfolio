@@ -17,7 +17,7 @@ function HeaderTop({}: Props) {
         wrapper="span"
         speed={50}
         repeat={Infinity}
-        className="mt-2 inline-block font-extrabold tracking-tight text-[clamp(1.75rem,5vw,4rem)]"
+        className=" mt-2 block font-extrabold tracking-tight text-[clamp(1.25rem,4vw,3rem)] min-h-[3.5rem] max-w-full break-words"
       />
     </div>
   );
