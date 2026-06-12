@@ -1,6 +1,20 @@
 const codeLines = [
-  { line: 1, content: <span className="text-green-500">{"// Front-End Developer & Software Engineer"}</span> },
-  { line: 2, content: <span className="text-green-500">{"// Building modern web experiences"}</span> },
+  {
+    line: 1,
+    content: (
+      <span className="text-green-500">
+        {"// Front-End Developer & Software Engineer"}
+      </span>
+    ),
+  },
+  {
+    line: 2,
+    content: (
+      <span className="text-green-500">
+        {"// Building modern web experiences"}
+      </span>
+    ),
+  },
   {
     line: 3,
     content: (
@@ -11,23 +25,71 @@ const codeLines = [
       </span>
     ),
   },
-  { line: 4, content: <CodeField name="name" value='"John Martin Demonteverde",' /> },
-  { line: 5, content: <CodeField name="role" value='"Software Engineer | Front-End Developer",' /> },
-  { line: 6, content: <CodeField name="location" value='"Bacolod City, Philippines",' /> },
+  {
+    line: 4,
+    content: <CodeField name="name" value='"John Martin Demonteverde",' />,
+  },
+  {
+    line: 5,
+    content: (
+      <CodeField
+        name="role"
+        value='"Software Engineer | Front-End Developer",'
+      />
+    ),
+  },
+  {
+    line: 6,
+    content: <CodeField name="location" value='"Bacolod City, Philippines",' />,
+  },
   { line: 7, content: <CodeField name="experience" value='"2+ years",' /> },
-  { line: 8, content: <CodeField name="education" value='"BS Computer Science - Cum Laude",' /> },
-  { line: 9, content: <CodeField name="frontend" value='["React", "Next.js", "Vue", "Angular"],' /> },
-  { line: 10, content: <CodeField name="backend" value='["Node.js", "PHP", ".NET"],' /> },
-  { line: 11, content: <CodeField name="database" value='["PostgreSQL", "MongoDB", "Cloud SQL"],' /> },
-  { line: 12, content: <CodeField name="tools" value='["Git", "Azure DevOps", "Postman"],' /> },
-  { line: 13, content: <CodeField name="certification" value='"Generative AI - Accenture",' /> },
+  {
+    line: 8,
+    content: (
+      <CodeField name="education" value='"BS Computer Science - Cum Laude",' />
+    ),
+  },
+  {
+    line: 9,
+    content: (
+      <CodeField
+        name="frontend"
+        value='["React", "Next.js", "Vue", "Angular"],'
+      />
+    ),
+  },
+  {
+    line: 10,
+    content: <CodeField name="backend" value='["Node.js", "PHP", ".NET"],' />,
+  },
+  {
+    line: 11,
+    content: (
+      <CodeField
+        name="database"
+        value='["PostgreSQL", "MongoDB", "Cloud SQL"],'
+      />
+    ),
+  },
+  {
+    line: 12,
+    content: (
+      <CodeField name="tools" value='["Git", "Azure DevOps", "Postman"],' />
+    ),
+  },
+  {
+    line: 13,
+    content: (
+      <CodeField name="certification" value='"Generative AI - Accenture",' />
+    ),
+  },
   {
     line: 14,
     content: (
       <span>
         <span className="ml-4 text-red-400">status</span>
         <span className="text-foreground">:</span>
-        <span className="text-green-500">{" \"Open to Opportunities\""}</span>
+        <span className="text-green-500">{' "Open to Opportunities"'}</span>
         <span className="text-foreground">,</span>
       </span>
     ),
@@ -51,7 +113,7 @@ function CodeField({ name, value }: { name: string; value: string }) {
     <span>
       <span className="ml-4 text-red-400">{name}</span>
       <span className="text-foreground">:</span>
-      <span className="text-primary"> {value}</span>
+      <span className="text-yellow-200"> {value}</span>
     </span>
   );
 }

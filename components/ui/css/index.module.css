@@ -4,7 +4,7 @@
   width: 100%;
   min-width: 0;
   justify-content: center;
-  color: white;
+  color: #d7e0ff;
 }
 
 .List {
@@ -55,18 +55,20 @@
 
 @media (hover: hover) {
   .Trigger:hover {
-    background-color: oklch(26.9% 0 0deg);
+    background-color: #17191d;
+    color: #00ff66;
   }
 }
 
 .Trigger[data-popup-open] {
-  background-color: oklch(26.9% 0 0deg);
+  background-color: #17191d;
+  color: #00ff66;
 }
 
 .Trigger:focus-visible,
 .SubmenuTrigger:focus-visible,
 .LinkCard:focus-visible {
-  outline: 2px solid white;
+  outline: 2px solid #00ff66;
   outline-offset: -1px;
 }
 
@@ -99,9 +101,9 @@
   max-width: calc(100vw - 1rem);
   height: var(--popup-height);
   max-height: min(76vh, 42rem);
-  border: 1px solid white;
-  background-color: oklch(14.5% 0 0deg);
-  color: white;
+  border: 1px solid #2f333a;
+  background-color: #07080a;
+  color: #d7e0ff;
   box-shadow: 0 1rem 2rem rgb(0 0 0 / 24%);
   outline: 0;
   transform-origin: var(--transform-origin);
@@ -149,7 +151,7 @@
 }
 
 .SubmenuRoot {
-  color: white;
+  color: #d7e0ff;
   overflow: hidden;
 }
 
@@ -167,7 +169,7 @@
   list-style: none;
   margin: 0;
   padding: 0.5rem;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #2f333a;
 }
 
 .SubmenuTrigger {
@@ -189,19 +191,19 @@
 @media (hover: hover) {
   .SubmenuTrigger:hover,
   .LinkCard:hover {
-    background-color: oklch(26.9% 0 0deg);
+    background-color: #17191d;
   }
 }
 
 .SubmenuTrigger[data-popup-open],
 .LinkCard[data-popup-open] {
-  background-color: oklch(26.9% 0 0deg);
+  background-color: #17191d;
 }
 
 .SubmenuLabel,
 .SubmenuTitle,
 .LinkTitle {
-  color: white;
+  color: #f8f8f2;
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.2;
@@ -211,7 +213,7 @@
 .SubmenuHint,
 .SubmenuDescription,
 .LinkDescription {
-  color: oklch(70.8% 0 0deg);
+  color: #9aa7cf;
   font-size: 0.8125rem;
   line-height: 1.35;
   margin: 0;
@@ -286,7 +288,7 @@
   .SubmenuList {
     flex-direction: column;
     overflow-x: visible;
-    border-right: 1px solid white;
+    border-right: 1px solid #2f333a;
     border-bottom: 0;
   }
 
@@ -312,8 +314,8 @@
     box-sizing: border-box;
     width: calc(6px * sqrt(2));
     height: calc(6px * sqrt(2));
-    border: 1px solid white;
-    background-color: oklch(14.5% 0 0deg);
+    border: 1px solid #2f333a;
+    background-color: #07080a;
     transform: translate(-50%, 50%) rotate(45deg);
   }
 }

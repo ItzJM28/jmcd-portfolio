@@ -130,6 +130,19 @@
   }
   html {
     @apply font-mono;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -194,6 +207,5 @@
   /* Aligns the icon vertically with nearby text */
   vertical-align: middle; 
 }
-
 
 
