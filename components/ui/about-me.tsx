@@ -51,7 +51,7 @@ export default function AboutMe() {
   return (
     <section className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="overflow-hidden rounded-lg border border-border bg-background">
-        <div className="border-b border-border px-4 py-3 font-semibold uppercase tracking-wide">
+        <div className="border-b bg-muted/10 border-border px-4 py-3 font-semibold uppercase tracking-wide">
           <div className="flex items-center gap-2">
             <HugeiconsIcon
               icon={ArrowRight01Icon}
@@ -69,25 +69,29 @@ export default function AboutMe() {
         <div className="grid gap-8 px-4 py-6 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-8">
           <div className="flex flex-col gap-8">
             <div className="max-w-3xl">
-              <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
+              <p className="text-sm font-medium uppercase tracking-wide text-amber-300">
                 John Martin Demonteverde
               </p>
               <h2 className="mt-2 text-2xl font-extrabold tracking-normal sm:text-3xl">
-                Software Engineer focused on thoughtful, reliable web experiences.
+                Software Engineer focused on thoughtful, reliable web
+                experiences.
               </h2>
               <p className="mt-4 text-pretty text-base leading-7 text-muted-foreground">
                 I am a front-end developer with 2+ years of hands-on experience
                 building modern, responsive, and user-friendly web applications.
-                I enjoy turning ideas into clean interfaces, connecting them with
-                APIs, and keeping the experience fast, accessible, and easy to
-                maintain.
+                I enjoy turning ideas into clean interfaces, connecting them
+                with APIs, and keeping the experience fast, accessible, and easy
+                to maintain.
               </p>
             </div>
 
             <ProfileSection title="Experience">
               <div className="relative flex flex-col gap-6 pl-5 before:absolute before:bottom-2 before:left-1.5 before:top-2 before:w-px before:bg-border">
                 {experience.map((item) => (
-                  <article key={`${item.company}-${item.period}`} className="relative">
+                  <article
+                    key={`${item.company}-${item.period}`}
+                    className="relative"
+                  >
                     <span className="absolute -left-5 top-1.5 size-3 border border-green-500 bg-background" />
                     <p className="text-xs font-semibold uppercase tracking-wide text-green-500">
                       {item.period}
@@ -95,7 +99,7 @@ export default function AboutMe() {
                     <h3 className="mt-1 text-base font-bold tracking-normal">
                       {item.role}
                     </h3>
-                    <p className="mt-1 text-sm text-muted-foreground">
+                    <p className="mt-1 text-sm text-purple-400">
                       {item.company} - {item.location}
                     </p>
                     <ul className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
@@ -126,7 +130,10 @@ export default function AboutMe() {
 
             <ProfileSection title="Education">
               {education.map((item) => (
-                <div key={item.degree} className="border border-border bg-card p-4">
+                <div
+                  key={item.degree}
+                  className="border border-border bg-card p-4"
+                >
                   <p className="text-xs font-semibold uppercase tracking-wide text-green-500">
                     {item.period}
                   </p>
@@ -136,7 +143,9 @@ export default function AboutMe() {
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">
                     {item.school}
                   </p>
-                  <p className="mt-3 text-sm font-semibold">{item.distinction}</p>
+                  <p className="mt-3 text-sm font-semibold text-amber-300">
+                    {item.distinction}
+                  </p>
                 </div>
               ))}
             </ProfileSection>

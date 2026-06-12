@@ -149,8 +149,10 @@ export function AppSidebar() {
             <Badge variant="secondary">React</Badge>
             <Badge variant="secondary">Next.js</Badge>
             <Badge variant="secondary">TypeScript</Badge>
+            <Badge variant="secondary">Angular</Badge>
             <Badge variant="secondary">Tailwind</Badge>
             <Badge variant="secondary">Node.js</Badge>
+            <Badge variant="secondary">PHP</Badge>
           </div>
         </SidebarGroup>
       </SidebarContent>
