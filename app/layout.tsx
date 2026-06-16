@@ -63,7 +63,7 @@ export default async function RootLayout({
             <div className="sticky top-0 z-30 flex items-center gap-3 border-b border-[#2f333a] bg-[#07080a]/95 px-3 py-3 backdrop-blur sm:px-5 lg:px-7">
               <SidebarTrigger className="h-10 w-10 shrink-0 rounded-none border border-[#303642] bg-[#0b0d10] text-[#9aa7cf] hover:border-[#00ff66]/70 hover:bg-[#17191d] hover:text-[#00ff66]" />
 
-              <div className="flex-1 min-w-0 overflow-x-auto">
+              <div className="flex-1 min-w-0 overflow-visible">
                 <Navbar />
               </div>
             </div>

@@ -3,6 +3,7 @@ import DescriptionHero from "@/components/ui/description-hero";
 import UseCompiler from "@/components/ui/compiler-ui";
 import AboutMe from "@/components/ui/about-me";
 import TechStack from "@/components/ui/techstack";
+import ContactFooter from "@/components/ui/contact-footer";
 
 export default function Home() {
   return (
@@ -25,6 +26,8 @@ export default function Home() {
       <div className="mt-4 md:mt-8 lg:mt-10">
         <TechStack />
       </div>
+
+      <ContactFooter />
     </main>
   );
 }

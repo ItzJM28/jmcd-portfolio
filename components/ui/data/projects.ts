@@ -18,12 +18,4 @@ export const projects: Project[] = [
     image: "/portfolio.png",
     liveUrl: "https://example.com",
   },
-  {
-    id: 3,
-    title: "Inventory System",
-    description:
-      "Inventory management system with reporting and analytics.",
-    image: "/hirayasgrill.png",
-    liveUrl: "https://example.com",
-  },
 ];
