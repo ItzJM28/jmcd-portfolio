@@ -154,19 +154,25 @@ html.js [data-reveal]:not([data-shown]) .split-word > span {
   transform: translateY(110%);
 }
 
-/* Typing: text is clipped and revealed one character step at a time. */
+/* Typing: text is clipped and revealed one character step at a time.
+   Once revealed, the text's own style is fully visible and the animation only
+   covers the delay and the typing (fill "backwards"). Relying on "forwards" to
+   hold the last step leaves the final character hidden in Safari. */
 @keyframes type {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
   to {
     clip-path: inset(0 0 0 0);
   }
 }
 
-html.js [data-reveal] .type {
+html.js [data-reveal]:not([data-shown]) .type {
   clip-path: inset(0 100% 0 0);
 }
 
 html.js [data-reveal][data-shown] .type {
-  animation: type calc(var(--n) * var(--speed, 16ms)) steps(var(--n), end) forwards;
+  animation: type calc(var(--n) * var(--speed, 16ms)) steps(var(--n), end) backwards;
   animation-delay: var(--t, 0ms);
 }
 
