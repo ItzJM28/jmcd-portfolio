@@ -1,0 +1,37 @@
+# Product
+
+<!-- impeccable:product-schema 1 -->
+
+## Platform
+
+web
+
+## Users
+Hiring managers, recruiters and engineering leads deciding whether to interview John Martin Demonteverde for a front-end developer role. They skim on desktop or phone, often in under a minute, and want proof of shipped work, relevant experience and a way to get in touch.
+
+## Product Purpose
+Personal portfolio for John Martin Demonteverde, a front-end developer based in Bacolod City, Philippines, open to front-end roles. Success: a visitor sees real shipped projects, understands his experience, and contacts him or downloads his résumé.
+
+## Positioning
+Front-End Developer (confirmed by the user, 2026-11-25). Not pitched as a graphic designer or full-stack developer.
+
+## Capabilities and Constraints
+- Next.js 16 (App Router), React 19, Tailwind CSS 4, deployed on Vercel.
+- One-page site (work, experience, skills, contact) plus `/resume` for the PDF. `/projects` redirects to `/#work`.
+- Tech icons come from `@dev.icons/react` (devicons.io), chosen by the user.
+
+## Brand Commitments
+- Colours chosen by the user (2026-11-25): page background #0C120C, white main text (softer steps are white mixed into the background), accents only from Vanilla Custard #F2F3AE, Light Gold #EDD382, Sandy Brown #FC9E4F, Fiery Terracotta #F4442E, green #16DB65 and blue #2176FF. No other hues. Geometric shapes remain as accents.
+
+## Evidence on Hand
+- Projects (all confirmed by the user to show): PeraFlow (formerly Penny Budget, peraflowph.vercel.app, repo budget-app), Hiraya's Grill (hiraya-web-app.vercel.app), Free QR Code Generator (qr-gf.vercel.app), Lynko (repo only, no live URL).
+- Screenshots of the three live projects in `public/work/`.
+- Experience: Accenture, Software Engineer Associate (Nov 2024 – Feb 2026); Crave Digital, Frontend Web Developer Intern (Jun – Aug 2023).
+- Education: BS Computer Science, Cum Laude, University of St. La Salle – Bacolod (2020 – 2024). Generative AI certification, Accenture (2025).
+- Résumé PDF: `public/Resume_Demonteverde.pdf`.
+- No testimonials, metrics or client names. Do not invent them. Do not state years of experience as a number.
+
+## Product Principles
+1. Shipped work first: every project links to something a visitor can open.
+2. Say less, prove more: no skill percentages, no filler services menus.
+3. One clear next step: email or résumé, always one click away.

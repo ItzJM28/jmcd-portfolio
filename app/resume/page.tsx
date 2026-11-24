@@ -1,56 +1,44 @@
+import type { Metadata } from "next";
 import { Download } from "lucide-react";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { profile } from "@/lib/content";
 
-const resumeUrl = "/Resume_Demonteverde.pdf";
+export const metadata: Metadata = {
+  title: "Résumé · John Martin Demonteverde",
+  description: "Résumé of John Martin Demonteverde, front-end developer.",
+};
 
 export default function ResumePage() {
   return (
-    <main className="w-full px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
-      <section className="mx-auto flex w-full max-w-7xl flex-col gap-5">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-              Resume
+    <section aria-labelledby="resume" className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+      <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <h1
+          id="resume"
+          className="font-display text-3xl font-medium tracking-[-0.02em] sm:text-4xl"
+        >
+          Résumé
+        </h1>
+        <a
+          href={profile.resume}
+          download
+          className="inline-flex h-12 items-center justify-center gap-2 bg-gold px-5 font-medium text-navy transition-colors hover:bg-vanilla"
+        >
+          <Download size={18} aria-hidden="true" />
+          Download PDF
+        </a>
+      </div>
+
+      <div className="mt-10 border border-line bg-navy-2">
+        <object data={profile.resume} type="application/pdf" className="h-[80vh] w-full">
+          <div className="flex min-h-[50vh] flex-col items-center justify-center gap-4 p-6 text-center text-ink-2">
+            <p className="max-w-md">
+              Your browser can’t show the PDF here. Download it to read the résumé.
             </p>
-            <h1 className="mt-1 text-3xl font-extrabold tracking-normal sm:text-4xl">
-              John Martin Demonteverde
-            </h1>
+            <a href={profile.resume} download className="font-medium text-gold underline decoration-2">
+              Download PDF
+            </a>
           </div>
-
-          <a
-            href={resumeUrl}
-            download
-            className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-auto")}
-          >
-            <Download className="size-4" />
-            Download PDF
-          </a>
-        </div>
-
-        <div className="min-h-[70vh] overflow-hidden rounded-lg border border-border bg-card">
-          <object
-            data={resumeUrl}
-            type="application/pdf"
-            className="h-[72vh] w-full"
-          >
-            <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4 p-6 text-center">
-              <p className="max-w-md text-sm leading-6 text-muted-foreground">
-                Your browser cannot preview this PDF here. Download it to view
-                the resume.
-              </p>
-              <a
-                href={resumeUrl}
-                download
-                className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-auto")}
-              >
-                <Download className="size-4" />
-                Download PDF
-              </a>
-            </div>
-          </object>
-        </div>
-      </section>
-    </main>
+        </object>
+      </div>
+    </section>
   );
 }
