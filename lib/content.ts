@@ -90,7 +90,7 @@ export const projects: Project[] = [
     stack: ["react", "typescript", "vite", "tailwind"],
     image: {
       src: "/work/qr-generator.png",
-      alt: "QR code generator with tabs for link, Wi-Fi, email, phone and SMS, and a preview panel.",
+      alt: "QR code generator in a bento grid of orange and blue tiles: type picker, details form, a live QR code preview, and size and color options.",
     },
     liveUrl: "https://qr-gf.vercel.app",
     sourceUrl: "https://github.com/ItzJM28/web-qr-code-generator",
