@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans, JetBrains_Mono, Unbounded } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
@@ -7,20 +7,26 @@ import { SiteFooter } from "@/components/site-footer";
 import { RevealObserver } from "@/components/motion";
 import { ResumeDialog } from "@/components/resume-dialog";
 
-const display = Unbounded({
-  subsets: ["latin"],
-  weight: ["500", "700"],
+// Fonts are self-hosted (Latin variable files in app/fonts) so builds never
+// depend on fetching from Google Fonts.
+const display = localFont({
+  src: "./fonts/unbounded-latin.woff2",
+  weight: "200 900",
+  display: "swap",
   variable: "--font-unbounded",
 });
 
-const sans = DM_Sans({
-  subsets: ["latin"],
+const sans = localFont({
+  src: "./fonts/dm-sans-latin.woff2",
+  weight: "100 1000",
+  display: "swap",
   variable: "--font-dm-sans",
 });
 
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "600"],
+const mono = localFont({
+  src: "./fonts/jetbrains-mono-latin.woff2",
+  weight: "400 800",
+  display: "swap",
   variable: "--font-jetbrains",
 });
 
