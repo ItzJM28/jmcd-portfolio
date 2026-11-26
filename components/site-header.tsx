@@ -15,7 +15,7 @@ export function SiteHeader() {
         aria-label="Main"
         className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-4 sm:px-6"
       >
-        <Link href="/" className="mr-auto text-lg" aria-label="John Martin Demonteverde, home">
+        <Link href="/" className="mr-auto flex items-center" aria-label="John Martin Demonteverde, home">
           <Logo />
         </Link>
 
