@@ -24,7 +24,7 @@ Front-End Developer (confirmed by the user, 2026-11-25). Not pitched as a graphi
 - Colours chosen by the user (2026-11-25): page background #0C120C, white main text (softer steps are white mixed into the background), accents only from Vanilla Custard #F2F3AE, Light Gold #EDD382, Sandy Brown #FC9E4F, Fiery Terracotta #F4442E, green #16DB65 and blue #2176FF. No other hues. Geometric shapes remain as accents.
 
 ## Evidence on Hand
-- Projects (all confirmed by the user to show): PeraFlow (formerly Penny Budget, peraflowph.vercel.app, repo budget-app), Hiraya's Grill (hiraya-web-app.vercel.app), Free QR Code Generator (qr-gf.vercel.app), Lynko (repo only, no live URL).
+- Projects (all confirmed by the user to show): PeraFlow (formerly Penny Budget, peraflowph.vercel.app, repo budget-app), JD Creates, the graphic design portfolio (jdcreates.vercel.app, repo graphic-design-portfolio; replaced Hiraya's Grill on 2026-11-26), Free QR Code Generator (qr-gf.vercel.app), Lynko (repo only, no live URL).
 - Screenshots of the three live projects in `public/work/`.
 - Experience: Accenture, Software Engineer Associate (Nov 2024 – Feb 2026); Crave Digital, Frontend Web Developer Intern (Jun – Aug 2023).
 - Education: BS Computer Science, Cum Laude, University of St. La Salle – Bacolod (2020 – 2024). Generative AI certification, Accenture (2025).
