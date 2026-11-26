@@ -13,7 +13,7 @@ export default function ResumePage() {
       <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <h1
           id="resume"
-          className="font-display text-3xl font-medium tracking-[-0.02em] sm:text-4xl"
+          className="font-display text-3xl font-semibold tracking-[-0.02em] sm:text-4xl"
         >
           Résumé
         </h1>

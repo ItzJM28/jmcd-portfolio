@@ -38,7 +38,7 @@ function SectionHeading({ id, children }: { id: string; children: string }) {
       id={id}
       data-reveal="up"
       aria-label={children.replace(/([a-z])([A-Z])/g, "$1 $2")}
-      className="font-display text-3xl font-medium tracking-[-0.02em] sm:text-4xl"
+      className="font-display text-3xl font-semibold tracking-[-0.02em] sm:text-4xl"
     >
       <span aria-hidden="true" className="font-mono font-normal text-terracotta">&lt;</span>
       <TypeIn text={children} start={250} />
@@ -172,7 +172,7 @@ function ProjectRow({ project, flip }: { project: Project; flip: boolean }) {
       <div className="lg:col-span-5">
         <h3
           data-reveal="words"
-          className={`font-display text-2xl font-medium tracking-[-0.02em] sm:text-3xl ${hueText[project.hue]}`}
+          className={`font-display text-2xl font-semibold tracking-[-0.02em] sm:text-3xl ${hueText[project.hue]}`}
         >
           <SplitWords text={project.title} start={150} />
         </h3>
@@ -248,7 +248,7 @@ export function Experience() {
           {experience.map((job) => (
             <li key={job.company} data-reveal="up" className="border-t border-line py-8 first:pt-0 first:border-t-0 lg:first:pt-2">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
-                <h3 className="font-display text-lg font-medium tracking-[-0.01em] sm:text-xl">{job.role}</h3>
+                <h3 className="font-display text-lg font-semibold tracking-[-0.01em] sm:text-xl">{job.role}</h3>
                 <p className="shrink-0 font-mono text-xs tabular-nums text-ink-3">{job.period}</p>
               </div>
               <p className="mt-2 flex items-center gap-2.5 text-ink-2">
@@ -268,7 +268,7 @@ export function Experience() {
 
           <li data-reveal="up" className="border-t border-line pt-8">
             <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
-              <h3 className="font-display text-lg font-medium tracking-[-0.01em] sm:text-xl">{education.degree}</h3>
+              <h3 className="font-display text-lg font-semibold tracking-[-0.01em] sm:text-xl">{education.degree}</h3>
               <p className="shrink-0 font-mono text-xs tabular-nums text-ink-3">{education.period}</p>
             </div>
             <p className="mt-2 flex items-center gap-2.5 text-ink-2">
@@ -354,7 +354,7 @@ export function Contact() {
           href={`mailto:${profile.email}`}
           data-reveal="up"
           style={delay(500)}
-          className="mt-10 inline-block break-words font-display text-[1.05rem] sm:text-xl font-medium text-gold underline decoration-gold/40 decoration-2 underline-offset-8 transition-colors hover:text-vanilla hover:decoration-vanilla md:text-3xl"
+          className="mt-10 inline-block break-words font-display text-[1.05rem] sm:text-xl font-semibold text-gold underline decoration-gold/40 decoration-2 underline-offset-8 transition-colors hover:text-vanilla hover:decoration-vanilla md:text-3xl"
         >
           {profile.email}
         </a>

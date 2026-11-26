@@ -9,18 +9,14 @@ import { ResumeDialog } from "@/components/resume-dialog";
 
 // Fonts are self-hosted (Latin variable files in app/fonts) so builds never
 // depend on fetching from Google Fonts.
-const display = localFont({
-  src: "./fonts/unbounded-latin.woff2",
-  weight: "200 900",
-  display: "swap",
-  variable: "--font-unbounded",
-});
-
+// Inter: a free, open-licensed (SIL OFL) font designed to read like Apple's SF Pro.
+// This file has the optical-size axis, so big headings get Inter Display shapes
+// and body text gets Inter Text shapes automatically, the same split SF Pro makes.
 const sans = localFont({
-  src: "./fonts/dm-sans-latin.woff2",
-  weight: "100 1000",
+  src: "./fonts/inter-latin.woff2",
+  weight: "100 900",
   display: "swap",
-  variable: "--font-dm-sans",
+  variable: "--font-inter",
 });
 
 const mono = localFont({
@@ -54,7 +50,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${display.variable} ${sans.variable} ${mono.variable} antialiased`}
+      className={`${sans.variable} ${mono.variable} antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-dvh overflow-x-clip">

@@ -20,8 +20,8 @@
   --color-navy-3: color-mix(in srgb, #ffffff 12%, #0c120c);
   --color-line: color-mix(in srgb, #ffffff 14%, #0c120c);
 
-  --font-display: var(--font-unbounded), ui-sans-serif, sans-serif;
-  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-inter), -apple-system, BlinkMacSystemFont, ui-sans-serif, sans-serif;
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
