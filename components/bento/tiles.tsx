@@ -1,7 +1,8 @@
 "use client";
 
 import { ArrowUpRight, Copy } from "lucide-react";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { type CSSProperties, useEffect, useRef, useState, type ReactNode } from "react";
+import { AnimatedMark } from "@/components/logo";
 import { ResumeLink } from "@/components/resume-dialog";
 import { tech } from "@/components/tech-icon";
 import { education, experience, type Hue, profile, skills } from "@/lib/content";
@@ -10,6 +11,26 @@ import { tileSurface } from "./tile";
 export const focusRing = "focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-gold";
 const fill = `absolute inset-0 overflow-hidden ${tileSurface} ${focusRing}`;
 export const eyebrow = "font-mono text-[10px] uppercase tracking-[0.08em] text-ink-3";
+
+/**
+ * Text whose words rise into place one after another (CSS `.rise-word`, staggered
+ * by --w). It still reads as one sentence to screen readers and copy-paste.
+ */
+export function RiseWords({ text, start = 0 }: { text: string; start?: number }) {
+  const words = text.split(" ");
+  return (
+    <>
+      {words.map((word, i) => (
+        <span key={i}>
+          <span className="rise-word inline-block" style={{ "--w": String(start + i) } as CSSProperties}>
+            {word}
+          </span>
+          {i < words.length - 1 ? " " : ""}
+        </span>
+      ))}
+    </>
+  );
+}
 
 /** The small round icon in a tile's top-right corner. */
 export function Chip({ children }: { children: ReactNode }) {
@@ -24,8 +45,8 @@ export function IntroTile() {
   return (
     <div className={`${fill} flex items-center gap-4 p-4 sm:gap-5 sm:p-5`}>
       <div className="intro-ring relative grid size-20 shrink-0 place-items-center rounded-full sm:size-24" aria-hidden="true">
-        <div className="relative grid size-[calc(100%-10px)] place-items-center rounded-full bg-navy text-2xl font-extrabold tracking-[-0.05em] sm:text-3xl">
-          JD
+        <div className="relative grid size-[calc(100%-10px)] place-items-center rounded-full bg-navy">
+          <AnimatedMark className="w-[46%] text-ink" />
         </div>
       </div>
       <div className="min-w-0">
@@ -33,13 +54,19 @@ export function IntroTile() {
           {profile.name}, {profile.role}
         </h1>
         <p className="text-[13px] leading-snug text-ink-2 sm:text-[15px] sm:leading-relaxed">
-          Hey <span className="wave inline-block">👋</span> I&apos;m{" "}
-          <strong className="font-semibold text-ink">{profile.name}</strong>, a front-end developer building responsive,
-          accessible web apps with React, Next.js and TypeScript.
+          <RiseWords text="Hey" /> <span className="wave inline-block">👋</span> <RiseWords text="I’m" start={1} />{" "}
+          <strong className="font-semibold text-ink">
+            <RiseWords text={profile.name} start={2} />
+          </strong>
+          ,{" "}
+          <RiseWords
+            text="a front-end developer building responsive, accessible web apps with React, Next.js and TypeScript."
+            start={5}
+          />
         </p>
         <p className="mt-2 inline-flex items-center gap-2 font-mono text-[11px] text-green">
           <span className="ping-dot size-2 rounded-full bg-green" aria-hidden="true" />
-          Open to front-end roles
+          <span className="reveal-line">Open to front-end roles</span>
         </p>
       </div>
     </div>
@@ -70,12 +97,14 @@ export function CopyEmailTile() {
         className="absolute inset-0 grid place-items-center text-4xl transition-transform duration-500 motion-safe:group-hover:-rotate-6 motion-safe:group-hover:scale-110"
         aria-hidden="true"
       >
-        ✉️
+        <span className="icon-float inline-block">✉️</span>
       </span>
       <Chip>
         <Copy size={13} aria-hidden="true" />
       </Chip>
-      <span className="absolute bottom-4 left-4 text-[13px] font-semibold text-gold">Copy email</span>
+      <span className="absolute bottom-4 left-4 text-[13px] font-semibold text-gold transition-transform duration-300 motion-safe:group-hover:translate-x-1">
+        Copy email
+      </span>
     </button>
     <span
       role="status"
@@ -97,12 +126,16 @@ export function LinkTile({ href, label, glyph }: { href: string; label: string; 
         className="absolute inset-0 grid place-items-center transition-transform duration-500 motion-safe:group-hover:-rotate-6 motion-safe:group-hover:scale-110"
         aria-hidden="true"
       >
-        {glyph}
+        <span className="icon-float inline-block" style={{ "--d": label === "GitHub" ? "-1.3s" : "-2.6s" } as CSSProperties}>
+          {glyph}
+        </span>
       </span>
       <Chip>
         <ArrowUpRight size={14} aria-hidden="true" />
       </Chip>
-      <span className="absolute bottom-4 left-4 text-[13px] font-semibold">{label}</span>
+      <span className="absolute bottom-4 left-4 text-[13px] font-semibold transition-transform duration-300 motion-safe:group-hover:translate-x-1">
+        {label}
+      </span>
     </a>
   );
 }

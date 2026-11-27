@@ -1,7 +1,7 @@
 "use client";
 
 import { animate } from "motion";
-import { useEffect, useRef, type ReactNode } from "react";
+import { type CSSProperties, useEffect, useRef, type ReactNode } from "react";
 import { type Category, type Filter, matches } from "@/lib/filter";
 
 export type Span = "1x1" | "2x1" | "1x2" | "2x2";
@@ -56,8 +56,9 @@ export function Tile({
       data-category={category}
       data-dimmed={dimmed ? "" : undefined}
       inert={dimmed}
+      style={{ "--i": String(index) } as CSSProperties}
       aria-hidden={dimmed || undefined}
-      className={`relative min-w-0 transition-[opacity,filter] duration-300 ${SPAN[span]} ${
+      className={`tile-in relative min-w-0 transition-[opacity,filter] duration-300 ${SPAN[span]} ${
         dimmed ? "opacity-15 blur-[2px] grayscale" : ""
       } ${className}`}
     >

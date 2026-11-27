@@ -279,3 +279,87 @@ html:has(.resume-dialog[open]) {
     animation: none;
   }
 }
+
+/* ───────── Entrances and idle icon motion ─────────
+   CSS only, so they run without JavaScript and never leave content hidden. */
+
+.tile-in {
+  animation: tile-in 0.6s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1)) both;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+
+@keyframes tile-in {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+    scale: 0.98;
+  }
+}
+
+.mark-piece {
+  animation: mark-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(150ms + var(--i, 0) * 45ms);
+}
+
+@keyframes mark-in {
+  from {
+    opacity: 0;
+    translate: var(--from, -120px) 0;
+  }
+}
+
+.rise-word {
+  animation: rise-word 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(120ms + var(--w, 0) * 25ms);
+}
+
+@keyframes rise-word {
+  from {
+    opacity: 0;
+    translate: 0 0.5em;
+    filter: blur(3px);
+  }
+}
+
+.reveal-line {
+  animation: reveal-line 0.8s steps(23, end) 0.9s both;
+}
+
+@keyframes reveal-line {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+.icon-float {
+  animation: icon-float 4s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+
+@keyframes icon-float {
+  50% {
+    translate: 0 -5px;
+  }
+}
+
+/* The arrow in the corner chip nudges toward where it leads. */
+@media (prefers-reduced-motion: no-preference) {
+  .chip svg {
+    transition: translate 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .group:hover .chip svg,
+  .group:focus-visible .chip svg {
+    translate: 1px -1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile-in,
+  .mark-piece,
+  .rise-word,
+  .reveal-line,
+  .icon-float {
+    animation: none;
+  }
+}

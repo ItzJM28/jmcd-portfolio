@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+
 /** The JD mark, traced from the logo PNG into 12 rectangles so it stays sharp at any size. */
 const MARK_PATH = "M586 0h73v127h-73zM716 0h380v127h-380zM0 253h126v126h-126zM969 127h127v253h-127zM0 379h127v1h-127zM0 380h1096v126h-1096zM0 574h1096v126h-1096zM0 700h127v1h-127zM253 763h73v127h-73zM969 700h127v253h-127zM0 701h126v379h-126zM253 953h843v127h-843z";
 
@@ -5,6 +7,36 @@ export function Mark({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 1096 1080" fill="currentColor" aria-hidden="true" focusable="false" className={className}>
       <path d={MARK_PATH} />
+    </svg>
+  );
+}
+
+/** The mark's rectangles, read from MARK_PATH ("M x y h w v h h -w z" per piece). */
+export const MARK_RECTS = [...MARK_PATH.matchAll(/M(\d+) (\d+)h(\d+)v(\d+)/g)].map(([, x, y, w, h]) => ({
+  x: Number(x),
+  y: Number(y),
+  w: Number(w),
+  h: Number(h),
+}));
+
+/**
+ * The JD mark built from its pieces, which slide into place one after another
+ * (CSS `.mark-piece`, staggered by --i). With reduced motion it is simply drawn.
+ */
+export function AnimatedMark({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 1096 1080" fill="currentColor" aria-hidden="true" focusable="false" className={className}>
+      {MARK_RECTS.map((r, i) => (
+        <rect
+          key={i}
+          className="mark-piece"
+          x={r.x}
+          y={r.y}
+          width={r.w}
+          height={r.h}
+          style={{ "--i": String(i), "--from": i % 2 ? "120px" : "-120px" } as CSSProperties}
+        />
+      ))}
     </svg>
   );
 }

@@ -65,7 +65,7 @@ export function ProjectTile({
         </motion.span>
       </span>
 
-      <span className="absolute inset-x-4 bottom-4 block">
+      <span className="absolute inset-x-4 bottom-4 block transition-transform duration-300 motion-safe:group-hover:-translate-y-1">
         <span className="block truncate text-[15px] font-semibold">{project.title}</span>
         <span className="block truncate text-[11px] text-ink-3">{project.summary}</span>
       </span>
