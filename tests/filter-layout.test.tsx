@@ -54,3 +54,15 @@ it("goes back to the default layout when All is picked again", () => {
   expect(order(container)).toEqual(DEFAULT);
   expect(tile(container, "qr").className).not.toContain("lg:col-span-4");
 });
+
+it("plays a tile's entrance only once, so moving it later can't replay it mid-measure", () => {
+  const { container } = render(<BentoGrid />);
+  const intro = tile(container, "intro");
+  expect(intro.classList.contains("tile-in")).toBe(true);
+  act(() => { intro.dispatchEvent(new Event("animationend", { bubbles: true })); });
+  expect(intro.classList.contains("tile-in")).toBe(false);
+  go("#work");
+  go("");
+  expect(tile(container, "intro").classList.contains("tile-in")).toBe(false);
+});
+
