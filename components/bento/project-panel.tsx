@@ -13,7 +13,8 @@ const button =
   "inline-flex h-10 items-center gap-1.5 rounded-lg px-4 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold";
 
 /**
- * A project's details. It grows out of the tile that opened it (shared layoutId).
+ * A project's details. It scales and fades in over the page (no shared layout with the tile:
+ * a second layout tracker on the tile could be stranded by hover while the grid glides).
  * Closes on ×, Escape, a backdrop click, or when the filter in the URL changes.
  * Rendered at the end of <body> so the header and page behind it can be made inert.
  */
@@ -55,8 +56,10 @@ export function ProjectPanel({ project, onClose }: { project: Project; onClose: 
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        layoutId={`project-${project.slug}`}
-        transition={{ type: "spring", stiffness: 260, damping: 30 }}
+        initial={{ opacity: 0, scale: 0.96, y: 16 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.96, y: 16 }}
+        transition={{ duration: 0.28, ease: [0.23, 1, 0.32, 1] }}
         className="relative flex max-h-dvh w-full flex-col overflow-hidden rounded-t-[22px] border border-line bg-navy-2 lg:max-h-[85vh] lg:max-w-3xl lg:rounded-[22px]"
       >
         <div className="flex items-center gap-3 border-b border-line p-4">

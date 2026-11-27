@@ -66,3 +66,9 @@ it("plays a tile's entrance only once, so moving it later can't replay it mid-me
   expect(tile(container, "intro").classList.contains("tile-in")).toBe(false);
 });
 
+
+it("gives project buttons no layout link of their own, so hovering mid-glide can't strand them", async () => {
+  const { ProjectTile } = await import("@/components/bento/project-tile");
+  // checked against the compiled component: no layoutId anywhere in a project tile
+  expect(ProjectTile.toString().includes("layoutId")).toBe(false);
+});

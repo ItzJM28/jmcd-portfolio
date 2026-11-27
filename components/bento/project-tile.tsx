@@ -29,7 +29,6 @@ export function ProjectTile({
   return (
     <motion.button
       type="button"
-      layoutId={`project-${project.slug}`}
       aria-haspopup="dialog"
       aria-label={`${project.title}, view project`}
       onClick={(e) => onOpen(project.slug, e.currentTarget)}
