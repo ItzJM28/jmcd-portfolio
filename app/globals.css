@@ -254,12 +254,19 @@ html:has(.resume-dialog[open]) {
   }
 }
 
-/* Corner chip turns gold and swings round when its tile is hovered or focused. */
+/* Corner chip turns gold when its tile is hovered or focused, and swings round
+   only when the visitor allows motion. */
 .group:hover .chip,
 .group:focus-visible .chip {
   background: var(--color-gold);
   color: var(--color-navy);
-  rotate: 45deg;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .group:hover .chip,
+  .group:focus-visible .chip {
+    rotate: 45deg;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

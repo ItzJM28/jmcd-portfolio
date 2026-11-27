@@ -29,6 +29,9 @@ export function IntroTile() {
         </div>
       </div>
       <div className="min-w-0">
+        <h1 className="sr-only">
+          {profile.name}, {profile.role}
+        </h1>
         <p className="text-[13px] leading-snug text-ink-2 sm:text-[15px] sm:leading-relaxed">
           Hey <span className="wave inline-block">👋</span> I&apos;m{" "}
           <strong className="font-semibold text-ink">{profile.name}</strong>, a front-end developer building responsive,
@@ -61,17 +64,10 @@ export function CopyEmailTile() {
   };
 
   return (
+    <>
     <button type="button" onClick={copy} className={`${fill} group p-4 text-left`}>
       <span
-        role="status"
-        className={`absolute left-1/2 top-3 -translate-x-1/2 whitespace-nowrap rounded-full bg-green px-2.5 py-1 text-[11px] font-semibold text-navy transition-all duration-300 ${
-          copied ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
-        }`}
-      >
-        {copied ? "Email copied" : ""}
-      </span>
-      <span
-        className="absolute inset-0 grid place-items-center text-4xl transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110"
+        className="absolute inset-0 grid place-items-center text-4xl transition-transform duration-500 motion-safe:group-hover:-rotate-6 motion-safe:group-hover:scale-110"
         aria-hidden="true"
       >
         ✉️
@@ -81,6 +77,16 @@ export function CopyEmailTile() {
       </Chip>
       <span className="absolute bottom-4 left-4 text-[13px] font-semibold text-gold">Copy email</span>
     </button>
+    <span
+      role="status"
+      aria-live="polite"
+      className={`pointer-events-none absolute left-1/2 top-3 -translate-x-1/2 whitespace-nowrap rounded-full bg-green px-2.5 py-1 text-[11px] font-semibold text-navy transition-all duration-300 motion-reduce:transition-none ${
+        copied ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
+      }`}
+    >
+      {copied ? "Email copied" : ""}
+    </span>
+    </>
   );
 }
 
@@ -88,7 +94,7 @@ export function LinkTile({ href, label, glyph }: { href: string; label: string; 
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className={`${fill} group p-4`}>
       <span
-        className="absolute inset-0 grid place-items-center transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110"
+        className="absolute inset-0 grid place-items-center transition-transform duration-500 motion-safe:group-hover:-rotate-6 motion-safe:group-hover:scale-110"
         aria-hidden="true"
       >
         {glyph}

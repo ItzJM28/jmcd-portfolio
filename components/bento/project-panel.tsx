@@ -4,6 +4,7 @@ import { ArrowUpRight, X } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useEffect, useId, useRef } from "react";
+import { createPortal } from "react-dom";
 import { TechIcon, tech } from "@/components/tech-icon";
 import type { Project } from "@/lib/content";
 import { ProjectLogo } from "./project-logo";
@@ -14,12 +15,16 @@ const button =
 /**
  * A project's details. It grows out of the tile that opened it (shared layoutId).
  * Closes on ×, Escape, a backdrop click, or when the filter in the URL changes.
+ * Rendered at the end of <body> so the header and page behind it can be made inert.
  */
 export function ProjectPanel({ project, onClose }: { project: Project; onClose: () => void }) {
   const titleId = useId();
   const closeRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
+    // Keep keyboard and screen-reader focus inside the panel: everything behind it goes inert.
+    const behind = [...document.querySelectorAll<HTMLElement>("header, main")];
+    behind.forEach((el) => el.setAttribute("inert", ""));
     closeRef.current?.focus();
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -29,13 +34,14 @@ export function ProjectPanel({ project, onClose }: { project: Project; onClose: 
     document.addEventListener("keydown", onKey);
     window.addEventListener("hashchange", onClose);
     return () => {
+      behind.forEach((el) => el.removeAttribute("inert"));
       document.body.style.overflow = prev;
       document.removeEventListener("keydown", onKey);
       window.removeEventListener("hashchange", onClose);
     };
   }, [onClose]);
 
-  return (
+  return createPortal(
     <div className="fixed inset-0 z-50 flex items-end justify-center lg:items-center lg:p-8">
       <motion.div
         aria-hidden="true"
@@ -116,6 +122,7 @@ export function ProjectPanel({ project, onClose }: { project: Project; onClose: 
           </div>
         </div>
       </motion.div>
-    </div>
+    </div>,
+    document.body,
   );
 }
