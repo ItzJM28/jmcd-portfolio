@@ -1,37 +1,29 @@
 import Link from "next/link";
+import { FilterPills } from "@/components/bento/filter-pills";
 import { Logo } from "@/components/logo";
 import { ResumeLink } from "@/components/resume-dialog";
 
-const links = [
-  { href: "/#work", label: "Work" },
-  { href: "/#experience", label: "Experience", wide: true },
-  { href: "/#contact", label: "Contact" },
-];
-
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-navy">
+    <header className="sticky top-0 z-40 border-b border-line bg-navy/90 backdrop-blur">
       <nav
         aria-label="Main"
-        className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-4 sm:px-6"
+        className="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4 sm:px-6"
       >
-        <Link href="/" className="mr-auto flex items-center" aria-label="John Martin Demonteverde, home">
-          <Logo />
-        </Link>
+        <div className="flex flex-1 items-center">
+          <Link href="/" className="flex items-center" aria-label="John Martin Demonteverde, home">
+            <Logo className="h-6 sm:h-7" />
+          </Link>
+        </div>
 
-        <ul className="flex items-center gap-5 text-[0.95rem] text-ink-2">
-          {links.map((l) => (
-            <li key={l.href} className={l.wide ? "hidden md:block" : undefined}>
-              <Link href={l.href} className="transition-colors hover:text-ink">
-                {l.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <FilterPills />
 
-        <ResumeLink className="inline-flex h-9 items-center border border-gold/70 px-3.5 text-sm font-medium text-gold transition-colors hover:bg-gold hover:text-navy">
-          Résumé
-        </ResumeLink>
+        <div className="hidden flex-1 justify-end lg:flex">
+          <ResumeLink className="inline-flex h-9 items-center rounded-lg border border-gold/70 px-3.5 text-sm font-medium text-gold transition-colors hover:bg-gold hover:text-navy">
+            Résumé
+          </ResumeLink>
+        </div>
+        <div className="flex-1 lg:hidden" aria-hidden="true" />
       </nav>
       <div aria-hidden="true" className="scroll-progress absolute inset-x-0 -bottom-px h-0.5" />
     </header>
