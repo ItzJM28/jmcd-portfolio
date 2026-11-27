@@ -16,7 +16,9 @@ export function SiteHeader() {
           </Link>
         </div>
 
-        <FilterPills />
+        <div className="lg:hidden">
+          <FilterPills />
+        </div>
 
         <div className="hidden flex-1 justify-end lg:flex">
           <ResumeLink className="inline-flex h-9 items-center rounded-lg border border-gold/70 px-3.5 text-sm font-medium text-gold transition-colors hover:bg-gold hover:text-navy">

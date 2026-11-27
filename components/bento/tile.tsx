@@ -3,6 +3,7 @@
 import { animate } from "motion";
 import { type CSSProperties, useEffect, useRef, type ReactNode } from "react";
 import { type Category, type Filter, matches } from "@/lib/filter";
+import { useReveal } from "@/lib/use-reveal";
 
 export type Span = "1x1" | "2x1" | "1x2" | "2x2";
 
@@ -24,6 +25,7 @@ export function Tile({
   span = "1x1",
   filter,
   index = 0,
+  place = "",
   className = "",
   children,
 }: {
@@ -31,12 +33,15 @@ export function Tile({
   span?: Span;
   filter: Filter;
   index?: number;
+  /** Extra grid placement classes, such as the hero tiles' explicit lg: positions. */
+  place?: string;
   className?: string;
   children: ReactNode;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const dimmed = !matches(category, filter);
   const first = useRef(true);
+  useReveal(ref);
 
   // A small staggered "pop" on the tiles that match a newly picked filter.
   useEffect(() => {
@@ -58,7 +63,7 @@ export function Tile({
       inert={dimmed}
       style={{ "--i": String(index) } as CSSProperties}
       aria-hidden={dimmed || undefined}
-      className={`tile-in relative min-w-0 transition-[opacity,filter] duration-300 ${SPAN[span]} ${
+      className={`tile-in relative min-w-0 transition-[opacity,filter] duration-300 ${SPAN[span]} ${place} ${
         dimmed ? "opacity-15 blur-[2px] grayscale" : ""
       } ${className}`}
     >

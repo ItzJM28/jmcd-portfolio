@@ -5,10 +5,12 @@ import { useCallback, useRef, useState } from "react";
 import { TechIcon } from "@/components/tech-icon";
 import { profile, projects } from "@/lib/content";
 import { useFilter } from "@/lib/use-filter";
+import { projectCount, toolCount } from "@/lib/stats";
+import { IntroCard, StatTile, VideoTile, Wordmark } from "./hero";
 import { ProjectPanel } from "./project-panel";
 import { ProjectTile } from "./project-tile";
 import { Tile } from "./tile";
-import { CopyEmailTile, ExperienceTile, IntroTile, LinkTile, LocationTile, ResumeTile, ToolkitTile } from "./tiles";
+import { CopyEmailTile, ExperienceTile, LinkTile, LocationTile, ResumeTile, ToolkitTile } from "./tiles";
 
 /** The whole home page: 12 tiles, filtered by the pills in the header. */
 export function BentoGrid() {
@@ -37,44 +39,57 @@ export function BentoGrid() {
         aria-label="Portfolio"
         className="grid auto-rows-[140px] grid-cols-2 gap-3 [grid-auto-flow:dense] lg:auto-rows-[150px] lg:grid-cols-4"
       >
-        <Tile category="about" span="2x1" filter={filter} index={0}>
-          <IntroTile />
+        {/* Hero. Phones keep this DOM order; desktop pins each piece with lg: placement. */}
+        <Tile category="about" filter={filter} index={0} place="col-span-2 lg:col-span-3 lg:col-start-2 lg:row-start-1">
+          <Wordmark />
         </Tile>
-        <Tile category="contact" filter={filter} index={1}>
+        <Tile category="about" filter={filter} index={1} place="col-span-2 row-span-3 lg:col-span-1 lg:col-start-1 lg:row-start-1">
+          <IntroCard />
+        </Tile>
+        <Tile category="about" filter={filter} index={2} place="col-span-2 lg:col-start-2 lg:row-start-2 lg:row-span-2">
+          <VideoTile src={profile.showreel} />
+        </Tile>
+        <Tile category="work" filter={filter} index={3} place="lg:col-start-4 lg:row-start-2">
+          <StatTile value={projectCount()} label="Projects shipped" tone="vanilla" />
+        </Tile>
+        <Tile category="about" filter={filter} index={4} place="lg:col-start-4 lg:row-start-3">
+          <StatTile value={toolCount()} label="Tools I build with" tone="green" />
+        </Tile>
+        <Tile category="contact" filter={filter} index={5}>
           <CopyEmailTile />
         </Tile>
-        <Tile category="contact" filter={filter} index={2}>
+        <Tile category="contact" filter={filter} index={6}>
           <LinkTile
             href={profile.linkedin}
             label="LinkedIn"
             glyph={<span className="text-4xl font-extrabold tracking-tight">in</span>}
           />
         </Tile>
-        <Tile category="work" span="2x2" filter={filter} index={3}>
+        <Tile category="work" span="2x2" filter={filter} index={7}>
           <ProjectTile project={peraflow} span="2x2" onOpen={onOpen} />
         </Tile>
-        <Tile category="work" span="1x2" filter={filter} index={4}>
+        <Tile category="work" span="1x2" filter={filter} index={8}>
           <ProjectTile project={jdcreates} span="1x2" onOpen={onOpen} />
         </Tile>
-        <Tile category="about" filter={filter} index={5}>
+        <Tile category="about" span="2x1" filter={filter} index={9}>
           <ToolkitTile />
         </Tile>
-        <Tile category="about" span="2x1" filter={filter} index={6}>
+        <Tile category="about" span="2x1" filter={filter} index={10}>
           <ExperienceTile />
         </Tile>
-        <Tile category="work" span="2x1" filter={filter} index={7}>
+        <Tile category="work" span="2x1" filter={filter} index={11}>
           <ProjectTile project={qr} span="2x1" onOpen={onOpen} />
         </Tile>
-        <Tile category="work" filter={filter} index={8}>
+        <Tile category="work" filter={filter} index={12}>
           <ProjectTile project={lynko} span="1x1" onOpen={onOpen} />
         </Tile>
-        <Tile category="about" filter={filter} index={9}>
+        <Tile category="about" span="2x1" filter={filter} index={13}>
           <LocationTile />
         </Tile>
-        <Tile category="contact" filter={filter} index={10}>
+        <Tile category="contact" filter={filter} index={14}>
           <LinkTile href={profile.github} label="GitHub" glyph={<TechIcon id="github" size={40} />} />
         </Tile>
-        <Tile category="contact" span="2x1" filter={filter} index={11}>
+        <Tile category="contact" span="2x1" filter={filter} index={15}>
           <ResumeTile />
         </Tile>
       </section>

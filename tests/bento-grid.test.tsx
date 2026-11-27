@@ -2,9 +2,9 @@ import { act, render } from "@testing-library/react";
 import { expect, it } from "vitest";
 import { BentoGrid } from "@/components/bento/bento-grid";
 
-it("shows all 12 tiles undimmed with no hash", () => {
+it("shows all 16 tiles undimmed with no hash", () => {
   const { container } = render(<BentoGrid />);
-  expect(container.querySelectorAll("[data-category]")).toHaveLength(12);
+  expect(container.querySelectorAll("[data-category]")).toHaveLength(16);
   expect(container.querySelectorAll("[inert]")).toHaveLength(0);
 });
 
@@ -14,12 +14,23 @@ it("dims and disables every non-work tile under #work", () => {
   const tiles = [...container.querySelectorAll<HTMLElement>("[data-category]")];
   const work = tiles.filter((t) => t.dataset.category === "work");
   const others = tiles.filter((t) => t.dataset.category !== "work");
-  expect(work).toHaveLength(4);
+  expect(work).toHaveLength(5);
   work.forEach((t) => expect(t.hasAttribute("inert")).toBe(false));
   others.forEach((t) => {
     expect(t.hasAttribute("inert")).toBe(true);
     expect(t.hasAttribute("data-dimmed")).toBe(true);
   });
+});
+
+it("keeps every tile visible when IntersectionObserver is missing", () => {
+  const { container } = render(<BentoGrid />);
+  expect(container.querySelectorAll("[data-reveal=pending]")).toHaveLength(0);
+});
+
+it("shows the counted numbers in the stat tiles", () => {
+  const { container } = render(<BentoGrid />);
+  expect(container.textContent).toContain("Projects shipped");
+  expect(container.textContent).toContain("Tools I build with");
 });
 
 it("no longer labels Lynko as a stand-in logo", () => {

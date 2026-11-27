@@ -2,7 +2,6 @@
 
 import { ArrowUpRight, Copy } from "lucide-react";
 import { type CSSProperties, useEffect, useRef, useState, type ReactNode } from "react";
-import { AnimatedMark } from "@/components/logo";
 import { ResumeLink } from "@/components/resume-dialog";
 import { tech } from "@/components/tech-icon";
 import { education, experience, type Hue, profile, skills } from "@/lib/content";
@@ -38,38 +37,6 @@ export function Chip({ children }: { children: ReactNode }) {
     <span className="chip absolute right-3 top-3 grid size-7 place-items-center rounded-full bg-navy-3 text-ink-2 transition-[transform,background-color,color] duration-300">
       {children}
     </span>
-  );
-}
-
-export function IntroTile() {
-  return (
-    <div className={`${fill} flex items-center gap-4 p-4 sm:gap-5 sm:p-5`}>
-      <div className="intro-ring relative grid size-20 shrink-0 place-items-center rounded-full sm:size-24" aria-hidden="true">
-        <div className="relative grid size-[calc(100%-10px)] place-items-center rounded-full bg-navy">
-          <AnimatedMark className="w-[46%] text-ink" />
-        </div>
-      </div>
-      <div className="min-w-0">
-        <h1 className="sr-only">
-          {profile.name}, {profile.role}
-        </h1>
-        <p className="text-[13px] leading-snug text-ink-2 sm:text-[15px] sm:leading-relaxed">
-          <RiseWords text="Hey" /> <span className="wave inline-block">👋</span> <RiseWords text="I’m" start={1} />{" "}
-          <strong className="font-semibold text-ink">
-            <RiseWords text={profile.name} start={2} />
-          </strong>
-          ,{" "}
-          <RiseWords
-            text="a front-end developer building responsive, accessible web apps with React, Next.js and TypeScript."
-            start={5}
-          />
-        </p>
-        <p className="mt-2 inline-flex items-center gap-2 font-mono text-[11px] text-green">
-          <span className="ping-dot size-2 rounded-full bg-green" aria-hidden="true" />
-          <span className="reveal-line">Open to front-end roles</span>
-        </p>
-      </div>
-    </div>
   );
 }
 

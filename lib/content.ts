@@ -53,6 +53,8 @@ export const profile = {
   github: "https://github.com/ItzJM28",
   linkedin: "https://www.linkedin.com/in/johnmarts/",
   resume: "/Resume_Demonteverde.pdf",
+  /** Showreel video URL. Unset until there is one; the video tile says "coming soon". */
+  showreel: undefined as string | undefined,
 };
 
 export const projects: Project[] = [

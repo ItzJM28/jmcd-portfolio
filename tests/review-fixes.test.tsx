@@ -7,7 +7,8 @@ vi.mock("next/navigation", () => ({ usePathname: () => "/" }));
 
 import { BentoGrid } from "@/components/bento/bento-grid";
 import { FilterPills } from "@/components/bento/filter-pills";
-import { CopyEmailTile, IntroTile, LinkTile } from "@/components/bento/tiles";
+import { IntroCard } from "@/components/bento/hero";
+import { CopyEmailTile, LinkTile } from "@/components/bento/tiles";
 import { profile } from "@/lib/content";
 
 it("makes the page behind the project panel inert while it is open", async () => {
@@ -29,7 +30,7 @@ it("makes the page behind the project panel inert while it is open", async () =>
 });
 
 it("gives the home page one h1 with the name and role", () => {
-  render(<IntroTile />);
+  render(<IntroCard />);
   const h1 = screen.getByRole("heading", { level: 1 });
   expect(h1.textContent).toContain(profile.name);
   expect(h1.textContent).toContain(profile.role);

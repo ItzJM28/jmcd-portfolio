@@ -363,3 +363,67 @@ html:has(.resume-dialog[open]) {
     animation: none;
   }
 }
+
+/* ───────── Hero card, video and scroll reveal ───────── */
+
+.badge-spin {
+  color: var(--color-ink);
+  animation: ring-spin 14s linear infinite;
+}
+
+.video-poster {
+  background:
+    radial-gradient(60% 70% at 28% 35%, color-mix(in srgb, var(--color-blue) 55%, transparent), transparent 60%),
+    radial-gradient(50% 60% at 76% 70%, color-mix(in srgb, var(--color-sandy) 50%, transparent), transparent 60%),
+    radial-gradient(40% 50% at 62% 18%, color-mix(in srgb, var(--color-green) 35%, transparent), transparent 60%),
+    var(--color-navy-2);
+  background-size: 140% 140%;
+  animation: poster-drift 14s ease-in-out infinite alternate;
+}
+
+@keyframes poster-drift {
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+.play-pulse {
+  box-shadow: 0 0 0 0 rgb(255 255 255 / 0.5);
+  animation: play-pulse 2.2s ease-out infinite;
+}
+
+@keyframes play-pulse {
+  70%,
+  100% {
+    box-shadow: 0 0 0 18px rgb(255 255 255 / 0);
+  }
+}
+
+/* Tiles below the fold wait hidden (client-side only) and rise in when scrolled to. */
+[data-reveal="pending"] {
+  opacity: 0;
+  translate: 0 28px;
+  scale: 0.96;
+}
+
+[data-reveal="in"] {
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    translate 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    scale 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge-spin,
+  .video-poster,
+  .play-pulse {
+    animation: none;
+  }
+
+  [data-reveal="pending"] {
+    opacity: 1;
+    translate: none;
+    scale: none;
+  }
+}
