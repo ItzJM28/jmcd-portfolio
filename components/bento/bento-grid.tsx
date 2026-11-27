@@ -74,7 +74,7 @@ export function BentoGrid() {
         <Tile category="contact" filter={filter} index={10}>
           <LinkTile href={profile.github} label="GitHub" glyph={<TechIcon id="github" size={40} />} />
         </Tile>
-        <Tile category="contact" filter={filter} index={11}>
+        <Tile category="contact" span="2x1" filter={filter} index={11}>
           <ResumeTile />
         </Tile>
       </section>

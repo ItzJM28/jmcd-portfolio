@@ -1,10 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import Script from "next/script";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { RevealObserver } from "@/components/motion";
 import { ResumeDialog } from "@/components/resume-dialog";
 import { MotionRoot } from "@/components/bento/motion-root";
 
@@ -55,11 +53,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-dvh overflow-x-clip">
-        {/* Lets reveal animations start hidden only when JS can show them again. */}
-        <Script id="js-flag" strategy="beforeInteractive">
-          {"document.documentElement.classList.add('js')"}
-        </Script>
-        <RevealObserver />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-gold focus:px-4 focus:py-2 focus:text-navy"

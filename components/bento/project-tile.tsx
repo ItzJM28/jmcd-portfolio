@@ -43,7 +43,7 @@ export function ProjectTile({
         background: `radial-gradient(120% 90% at 50% 40%, color-mix(in srgb, ${project.glow} 14%, transparent), transparent 65%), var(--color-navy-2)`,
       } as CSSProperties}
     >
-      {tall && <span className={eyebrow}>{EYEBROW[project.slug]}</span>}
+      {tall && <span className={`absolute left-4 right-12 top-4 truncate ${eyebrow}`}>{EYEBROW[project.slug]}</span>}
       <Chip>
         <ArrowUpRight size={14} aria-hidden="true" />
       </Chip>

@@ -76,112 +76,6 @@
   }
 }
 
-/* Faint layout grid behind the hero, fading out at the bottom. */
-.hero-grid {
-  background-image:
-    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: linear-gradient(to bottom, black 70%, transparent);
-}
-
-/* Editor caret. */
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-.caret {
-  animation: blink 1.1s steps(1) infinite;
-}
-
-/* ───────── Scroll reveals ─────────
-   Elements only start hidden once JS has tagged <html class="js">, and the
-   RevealObserver adds data-shown as each one enters the viewport. */
-
-html.js [data-reveal] {
-  transition:
-    opacity 0.9s var(--ease-out-expo),
-    transform 0.9s var(--ease-out-expo),
-    filter 0.9s var(--ease-out-expo),
-    clip-path 1.2s var(--ease-out-expo);
-  transition-delay: var(--d, 0ms);
-}
-
-html.js [data-reveal="up"]:not([data-shown]) {
-  opacity: 0;
-  transform: translateY(28px);
-  filter: blur(6px);
-}
-
-/* Clipped elements never count as visible, so the wipe is triggered by its parent. */
-.wipe {
-  transition:
-    clip-path 1.2s var(--ease-out-expo),
-    transform 1.2s var(--ease-out-expo);
-}
-
-html.js [data-reveal="frame"]:not([data-shown]) .wipe {
-  clip-path: inset(0 0 100% 0);
-  transform: translateY(40px);
-}
-
-html.js [data-reveal="pop"]:not([data-shown]) {
-  opacity: 0;
-  transform: scale(0.3);
-}
-
-html.js [data-reveal="pop"] {
-  transition-duration: 1.2s;
-}
-
-/* Words rising out of a mask. */
-.split-word {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: top;
-  padding-bottom: 0.1em;
-  margin-bottom: -0.1em;
-}
-
-.split-word > span {
-  display: inline-block;
-  transition: transform 1s var(--ease-out-expo) var(--d, 0ms);
-}
-
-html.js [data-reveal]:not([data-shown]) .split-word > span {
-  transform: translateY(110%);
-}
-
-/* Typing: text is clipped and revealed one character step at a time.
-   Once revealed, the text's own style is fully visible and the animation only
-   covers the delay and the typing (fill "backwards"). Relying on "forwards" to
-   hold the last step leaves the final character hidden in Safari. */
-@keyframes type {
-  from {
-    clip-path: inset(0 100% 0 0);
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-html.js [data-reveal]:not([data-shown]) .type {
-  clip-path: inset(0 100% 0 0);
-}
-
-html.js [data-reveal][data-shown] .type {
-  animation: type calc(var(--n) * var(--speed, 16ms)) steps(var(--n), end) backwards;
-  animation-delay: var(--t, 0ms);
-}
-
-.type {
-  display: inline-block;
-  white-space: pre;
-  vertical-align: bottom;
-}
-
 /* ───────── Scroll-linked effects (where supported) ───────── */
 
 .scroll-progress {
@@ -203,26 +97,10 @@ html.js [data-reveal][data-shown] .type {
   }
 }
 
-@keyframes drift {
-  from {
-    translate: 0 48px;
-    rotate: -6deg;
-  }
-  to {
-    translate: 0 -48px;
-    rotate: 6deg;
-  }
-}
-
 @supports (animation-timeline: scroll()) {
   .scroll-progress {
     animation: progress linear both;
     animation-timeline: scroll(root);
-  }
-
-  .drift {
-    animation: drift linear both;
-    animation-timeline: view();
   }
 }
 
@@ -288,21 +166,6 @@ html:has(.resume-dialog[open]) {
     transition: none;
   }
 
-  .caret,
-  .drift,
-  html.js [data-reveal][data-shown] .type {
-    animation: none;
-  }
-
-  html.js [data-reveal],
-  .wipe,
-  .split-word > span {
-    transition: none;
-  }
-
-  html.js [data-reveal] .type {
-    clip-path: none;
-  }
 }
 
 /* ───────── Bento tiles ─────────

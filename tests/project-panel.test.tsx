@@ -14,8 +14,10 @@ vi.mock("motion/react", async (importOriginal) => {
         const Inner = Reflect.get(target, key) as React.ElementType;
         cache.set(
           key,
-          React.forwardRef(function NoLayoutId({ layoutId: _drop, ...props }: Record<string, unknown>, ref) {
-            return React.createElement(Inner, { ...props, ref });
+          React.forwardRef(function NoLayoutId(props: Record<string, unknown>, ref) {
+            const rest = { ...props };
+            delete rest.layoutId;
+            return React.createElement(Inner, { ...rest, ref });
           }),
         );
       }
