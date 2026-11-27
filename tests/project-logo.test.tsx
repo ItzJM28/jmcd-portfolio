@@ -17,8 +17,10 @@ it("uses the JD mark for JD Creates", () => {
   expect(container.querySelector("[data-logo=jdcreates] path")?.getAttribute("d")).toMatch(/^M586 0h73/);
 });
 
-it("draws the PeraFlow peso mark", () => {
+it("uses the real PeraFlow logo image", () => {
   const { container } = render(<ProjectLogo id="peraflow" />);
-  const paths = [...container.querySelectorAll("[data-logo=peraflow] path")].map((p) => p.getAttribute("d"));
-  expect(paths).toEqual(["M6 20V5h7a4.5 4.5 0 0 1 0 9H6", "M3 9.5h12M3 13h9"]);
+  const img = container.querySelector("[data-logo=peraflow] img");
+  expect(img?.getAttribute("src")).toContain("peraflow.png");
+  expect(img?.getAttribute("alt")).toBe("");
+  expect(container.querySelector("[data-logo=peraflow] svg")).toBeNull();
 });
