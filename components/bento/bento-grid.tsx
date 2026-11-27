@@ -47,7 +47,7 @@ export function BentoGrid() {
           <IntroCard />
         </Tile>
         <Tile category="about" filter={filter} index={2} place="col-span-2 lg:col-start-2 lg:row-start-2 lg:row-span-2">
-          <VideoTile src={profile.showreel} />
+          <VideoTile src={profile.showreel} poster={profile.showreelPoster} label="PeraFlow demo video" />
         </Tile>
         <Tile category="work" filter={filter} index={3} place="lg:col-start-4 lg:row-start-2">
           <StatTile value={projectCount()} label="Projects shipped" tone="vanilla" />

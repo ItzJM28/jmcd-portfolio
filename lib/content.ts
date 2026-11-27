@@ -53,8 +53,9 @@ export const profile = {
   github: "https://github.com/ItzJM28",
   linkedin: "https://www.linkedin.com/in/johnmarts/",
   resume: "/Resume_Demonteverde.pdf",
-  /** Showreel video URL. Unset until there is one; the video tile says "coming soon". */
-  showreel: undefined as string | undefined,
+  /** Showreel video: the PeraFlow demo. Unset it to bring back the "coming soon" tile. */
+  showreel: "/video/peraflow-demo.mp4" as string | undefined,
+  showreelPoster: "/video/peraflow-demo.jpg",
 };
 
 export const projects: Project[] = [

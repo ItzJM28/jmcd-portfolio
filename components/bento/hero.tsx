@@ -105,18 +105,21 @@ export function Wordmark() {
 }
 
 /** Showreel slot. Until a video exists the play button says it's coming soon. */
-export function VideoTile({ src }: { src?: string }) {
+export function VideoTile({ src, poster, label = "Showreel" }: { src?: string; poster?: string; label?: string }) {
   const [said, setSaid] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
   useEffect(() => () => clearTimeout(timer.current), []);
 
   if (src) {
     return (
+      // preload="none": the page stays light; the video only downloads when someone presses play
       <video
         src={src}
+        poster={poster}
+        aria-label={label}
         controls
         playsInline
-        preload="metadata"
+        preload="none"
         className="absolute inset-0 size-full rounded-[22px] bg-navy object-cover"
       />
     );

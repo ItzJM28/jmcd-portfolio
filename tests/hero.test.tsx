@@ -39,6 +39,20 @@ it("plays a real video in place once one is set", () => {
   expect(container.querySelector("video")?.getAttribute("src")).toBe("/showreel.mp4");
 });
 
+it("shows a poster and downloads nothing until play is pressed", () => {
+  const { container } = render(<VideoTile src="/video/demo.mp4" poster="/video/demo.jpg" label="PeraFlow demo" />);
+  const v = container.querySelector("video")!;
+  expect(v.getAttribute("poster")).toBe("/video/demo.jpg");
+  expect(v.getAttribute("preload")).toBe("none");
+  expect(v.hasAttribute("controls")).toBe(true);
+  expect(v.getAttribute("aria-label")).toBe("PeraFlow demo");
+});
+
+it("points the portfolio showreel at the PeraFlow demo", () => {
+  expect(profile.showreel).toBe("/video/peraflow-demo.mp4");
+  expect(profile.showreelPoster).toBe("/video/peraflow-demo.jpg");
+});
+
 it("shows the stat's final number in the first render", () => {
   render(<StatTile value={24} label="Tools I build with" tone="green" />);
   expect(screen.getByText("24")).toBeTruthy();
