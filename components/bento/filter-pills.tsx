@@ -18,7 +18,7 @@ const STYLE = {
   },
   vertical: {
     group: "hidden flex-col items-center gap-1 rounded-full border border-line bg-navy-2 p-[3px] lg:flex",
-    item: `relative w-9 rounded-full py-4 text-sm font-semibold transition-colors ${focus}`,
+    item: `relative flex w-9 items-center justify-center rounded-full py-4 text-sm font-semibold leading-none transition-colors ${focus}`,
     // Sideways text, read bottom to top like the reference's side menu.
     label: "relative block rotate-180 [writing-mode:vertical-rl]",
   },
