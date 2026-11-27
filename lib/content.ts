@@ -27,8 +27,13 @@ export type TechId =
   | "vscode"
   | "azure";
 
+export type ProjectLogoId = "peraflow" | "jdcreates" | "qr" | "lynko";
+
 export type Project = {
   slug: string;
+  logo: ProjectLogoId;
+  /** CSS colour for the soft glow behind the logo tile. */
+  glow: string;
   title: string;
   summary: string;
   detail: string;
@@ -43,6 +48,7 @@ export const profile = {
   name: "John Martin Demonteverde",
   role: "Front-End Developer",
   location: "Bacolod City, Philippines",
+  locationShort: "Bacolod, PH",
   email: "jmc.demonteverde@gmail.com",
   github: "https://github.com/ItzJM28",
   linkedin: "https://www.linkedin.com/in/johnmarts/",
@@ -52,6 +58,8 @@ export const profile = {
 export const projects: Project[] = [
   {
     slug: "peraflow",
+    logo: "peraflow",
+    glow: "#34b98a",
     title: "PeraFlow",
     summary: "Personal finance for the Philippines, all in pesos.",
     detail:
@@ -67,6 +75,8 @@ export const projects: Project[] = [
   },
   {
     slug: "jdcreates",
+    logo: "jdcreates",
+    glow: "var(--color-gold)",
     title: "JD Creates",
     summary: "My graphic design portfolio, built as a bento grid.",
     detail:
@@ -82,6 +92,8 @@ export const projects: Project[] = [
   },
   {
     slug: "qr",
+    logo: "qr",
+    glow: "#f55a00",
     title: "Free QR Code Generator",
     summary: "Paste a link, get a QR code. No sign-up.",
     detail:
@@ -97,6 +109,8 @@ export const projects: Project[] = [
   },
   {
     slug: "lynko",
+    logo: "lynko",
+    glow: "var(--color-terracotta)",
     title: "Lynko",
     summary: "A clean, minimal link shortener.",
     detail: "Short links from long URLs, built on the Next.js App Router.",
