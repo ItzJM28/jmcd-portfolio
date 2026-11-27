@@ -34,23 +34,28 @@ it("says the showreel is coming soon when there is no video", async () => {
   expect(screen.getByRole("status").textContent).toBe("Showreel coming soon");
 });
 
-it("plays a real video in place once one is set", () => {
-  const { container } = render(<VideoTile src="/showreel.mp4" />);
-  expect(container.querySelector("video")?.getAttribute("src")).toBe("/showreel.mp4");
+it("shows the poster as a play button and loads no video until pressed", () => {
+  const { container } = render(<VideoTile src="/video/demo.mp4" poster="/video/demo.jpg" label="PeraFlow demo" />);
+  expect(container.querySelector("video")).toBeNull();
+  const play = screen.getByRole("button", { name: "Play PeraFlow demo" });
+  expect(play.querySelector("img")?.getAttribute("src")).toBe("/video/demo.jpg");
 });
 
-it("shows a poster and downloads nothing until play is pressed", () => {
+it("swaps in the playing video, with controls and focus, when play is pressed", () => {
   const { container } = render(<VideoTile src="/video/demo.mp4" poster="/video/demo.jpg" label="PeraFlow demo" />);
+  fireEvent.click(screen.getByRole("button", { name: "Play PeraFlow demo" }));
   const v = container.querySelector("video")!;
+  expect(v.getAttribute("src")).toBe("/video/demo.mp4");
   expect(v.getAttribute("poster")).toBe("/video/demo.jpg");
-  expect(v.getAttribute("preload")).toBe("none");
   expect(v.hasAttribute("controls")).toBe(true);
+  expect(v.autoplay).toBe(true);
   expect(v.getAttribute("aria-label")).toBe("PeraFlow demo");
+  expect(document.activeElement).toBe(v);
 });
 
 it("points the portfolio showreel at the PeraFlow demo", () => {
   expect(profile.showreel).toBe("/video/peraflow-demo.mp4");
-  expect(profile.showreelPoster).toBe("/video/peraflow-demo.jpg");
+  expect(profile.showreelPoster).toBe("/video/peraflow-demo-poster.webp");
 });
 
 it("shows the stat's final number in the first render", () => {

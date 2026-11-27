@@ -30,7 +30,6 @@ export function ProjectTile({
     <motion.button
       type="button"
       aria-haspopup="dialog"
-      aria-label={`${project.title}, view project`}
       onClick={(e) => onOpen(project.slug, e.currentTarget)}
       initial="rest"
       animate="rest"
@@ -42,7 +41,7 @@ export function ProjectTile({
         background: `radial-gradient(120% 90% at 50% 40%, color-mix(in srgb, ${project.glow} 14%, transparent), transparent 65%), var(--color-navy-2)`,
       } as CSSProperties}
     >
-      {tall && <span className={`absolute left-4 right-12 top-4 truncate ${eyebrow}`}>{EYEBROW[project.slug]}</span>}
+      {tall && <span aria-hidden="true" className={`absolute left-4 right-12 top-4 truncate ${eyebrow}`}>{EYEBROW[project.slug]}</span>}
       <Chip>
         <ArrowUpRight size={14} aria-hidden="true" />
       </Chip>
@@ -67,6 +66,7 @@ export function ProjectTile({
       <span className="absolute inset-x-4 bottom-4 block transition-transform duration-300 motion-safe:group-hover:-translate-y-1">
         <span className="block truncate text-[15px] font-semibold">{project.title}</span>
         <span className="block truncate text-[11px] text-ink-3">{project.summary}</span>
+        <span className="sr-only"> View project</span>
       </span>
     </motion.button>
   );
