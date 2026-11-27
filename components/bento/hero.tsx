@@ -33,7 +33,7 @@ export function IntroCard() {
       <motion.div style={{ y: photoY }} className="absolute inset-x-0 top-[12%] grid place-items-center">
         <div className="relative w-[min(58%,190px)]">
           <div className="photo-ring grid aspect-square w-full place-items-center rounded-full border-[3px] border-white">
-            <div className="grid aspect-square w-[80%] place-items-center rounded-full bg-sandy">
+            <div className="grid aspect-square w-[80%] place-items-center rounded-full bg-white">
               <AnimatedMark className="w-[52%] text-navy" />
             </div>
           </div>
