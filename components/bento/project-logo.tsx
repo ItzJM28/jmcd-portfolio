@@ -7,11 +7,11 @@ const QR_PATH =
   "M5 5h6v6H5zM13 5h6v6h-6zM5 13h6v6H5zM13 13h2v2h-2zM17 13h2v2h-2zM15 15h2v2h-2zM13 17h2v2h-2zM17 17h2v2h-2z";
 
 const tile: Record<ProjectLogoId, { className: string; style?: CSSProperties }> = {
-  // The PeraFlow logo file already includes its green rounded square.
+  // The PeraFlow and Lynko logo files already include their rounded squares.
   peraflow: { className: "overflow-hidden" },
   jdcreates: { className: "border border-line bg-navy text-ink" },
   qr: { className: "text-white", style: { background: "#f55a00" } },
-  lynko: { className: "text-terracotta", style: { background: "#1a1f2e" } },
+  lynko: { className: "overflow-hidden" },
 };
 
 /** Each app's own logo, on its own coloured rounded square. */
@@ -33,10 +33,7 @@ export function ProjectLogo({ id, className = "" }: { id: ProjectLogoId; classNa
         </svg>
       )}
       {id === "lynko" && (
-        <svg viewBox="0 0 200 100" className="w-[72%]" fill="none" stroke="currentColor" strokeWidth="18" aria-hidden="true">
-          <circle cx="70" cy="50" r="38" />
-          <circle cx="130" cy="50" r="38" style={{ mixBlendMode: "screen" }} />
-        </svg>
+        <Image src="/logos/lynko.png" alt="" width={512} height={512} sizes="160px" className="size-full" />
       )}
     </span>
   );

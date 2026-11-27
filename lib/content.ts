@@ -110,7 +110,7 @@ export const projects: Project[] = [
   {
     slug: "lynko",
     logo: "lynko",
-    glow: "var(--color-terracotta)",
+    glow: "#2f5bff",
     title: "Lynko",
     summary: "A clean, minimal link shortener.",
     detail: "Short links from long URLs, built on the Next.js App Router.",

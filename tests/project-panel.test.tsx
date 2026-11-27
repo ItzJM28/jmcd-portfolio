@@ -54,7 +54,8 @@ it("shows Lynko's logo in place of a screenshot and has no live link", async () 
   fireEvent.click(tile("Lynko"));
   const dialog = await screen.findByRole("dialog", { name: "Lynko" });
   expect(within(dialog).queryByRole("link", { name: /visit site/i })).toBeNull();
-  expect(dialog.querySelector("img")).toBeNull();
+  // No screenshot: the only images are the logo itself.
+  expect([...dialog.querySelectorAll("img")].filter((img) => !img.closest("[data-logo]"))).toHaveLength(0);
   expect(dialog.querySelector("[data-logo=lynko]")).not.toBeNull();
   expect(within(dialog).getByRole("link", { name: /source code/i }).getAttribute("href")).toBe("https://github.com/ItzJM28/lynko");
 });

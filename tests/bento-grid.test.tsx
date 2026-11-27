@@ -22,6 +22,11 @@ it("dims and disables every non-work tile under #work", () => {
   });
 });
 
+it("no longer labels Lynko as a stand-in logo", () => {
+  const { container } = render(<BentoGrid />);
+  expect(container.textContent).not.toContain("stand-in logo");
+});
+
 it("re-dims when the filter changes", () => {
   const { container } = render(<BentoGrid />);
   act(() => {

@@ -69,9 +69,6 @@ export function ProjectTile({
         <span className="block truncate text-[15px] font-semibold">{project.title}</span>
         <span className="block truncate text-[11px] text-ink-3">{project.summary}</span>
       </span>
-      {project.slug === "lynko" && (
-        <span className="absolute right-4 top-12 font-mono text-[9px] text-ink-3">stand-in logo</span>
-      )}
     </motion.button>
   );
 }

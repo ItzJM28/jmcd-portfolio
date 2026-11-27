@@ -7,9 +7,10 @@ it("draws the QR glyph from the app's favicon", () => {
   expect(container.querySelector("[data-logo=qr] path")?.getAttribute("d")).toMatch(/^M5 5h6v6H5z/);
 });
 
-it("draws Lynko as two rings", () => {
+it("uses the real Lynko logo image", () => {
   const { container } = render(<ProjectLogo id="lynko" />);
-  expect(container.querySelectorAll("[data-logo=lynko] circle")).toHaveLength(2);
+  expect(container.querySelector("[data-logo=lynko] img")?.getAttribute("src")).toContain("lynko.png");
+  expect(container.querySelector("[data-logo=lynko] circle")).toBeNull();
 });
 
 it("uses the JD mark for JD Creates", () => {
