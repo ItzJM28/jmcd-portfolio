@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { FILTERS, type Filter, filterToHash } from "@/lib/filter";
+import { armLayout } from "@/lib/layout-arm";
 import { useFilter } from "@/lib/use-filter";
 
 const LABEL: Record<Filter, string> = { all: "All", about: "About", work: "Work", contact: "Contact" };
@@ -41,7 +42,7 @@ export function FilterPills({ vertical = false }: { vertical?: boolean }) {
   const order = vertical ? [...FILTERS].reverse() : FILTERS;
 
   return (
-    <div role="group" aria-label="Filter tiles" className={s.group}>
+    <div role="group" aria-label="Filter tiles" className={s.group} onPointerEnter={armLayout} onPointerDown={armLayout} onFocus={armLayout}>
       {order.map((f) => {
         const active = onHome && f === filter;
         const inner = (

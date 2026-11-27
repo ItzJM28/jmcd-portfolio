@@ -3,6 +3,8 @@
 import { motion } from "motion/react";
 import { type CSSProperties, useEffect, useRef, useState, type ReactNode } from "react";
 import { type Category, type Filter, matches } from "@/lib/filter";
+import { useLayoutArmed } from "@/lib/layout-arm";
+import { watchOffscreen } from "@/lib/offscreen";
 import { useReveal } from "@/lib/use-reveal";
 
 export type Span = "1x1" | "2x1" | "1x2" | "2x2";
@@ -45,7 +47,9 @@ export function Tile({
   const ref = useRef<HTMLDivElement>(null);
   const dimmed = dimmedProp ?? !matches(category, filter);
   const [entered, setEntered] = useState(false);
+  const armed = useLayoutArmed();
   useReveal(ref);
+  useEffect(() => (ref.current ? watchOffscreen(ref.current) : undefined), []);
   // Drop the entrance class once it has played, so reordering never replays it.
   useEffect(() => {
     const el = ref.current;
@@ -58,10 +62,13 @@ export function Tile({
   return (
     <motion.div
       ref={ref}
-      layout
+      layout={armed}
       layoutDependency={filter}
+      data-layout-armed={armed ? "" : undefined}
       transition={{ layout: LAYOUT }}
       data-tile={tileKey}
+      // Endless loops start paused; watchOffscreen plays them while the tile is in view.
+      data-offscreen=""
       data-category={category}
       data-dimmed={dimmed ? "" : undefined}
       inert={dimmed}
@@ -72,7 +79,7 @@ export function Tile({
       } ${className}`}
     >
       {/* Counter-scales the content while the tile resizes, so text never stretches. */}
-      <motion.div layout layoutDependency={filter} transition={{ layout: LAYOUT }} className="absolute inset-0">
+      <motion.div layout={armed} layoutDependency={filter} transition={{ layout: LAYOUT }} className="absolute inset-0">
         {children}
       </motion.div>
     </motion.div>

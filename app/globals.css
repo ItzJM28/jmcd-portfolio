@@ -209,20 +209,33 @@ html:has(.resume-dialog[open]) {
   20%, 40% { rotate: -8deg; }
 }
 
+/* A ring that grows and fades from the dot. Scale and opacity only, so it runs on the GPU. */
 .ping-dot {
-  box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-emerald) 60%, transparent);
-  animation: ping-soft 1.8s ease-out infinite;
+  --ping: var(--color-emerald);
 }
 
 .ping-blue {
-  box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-cyan) 60%, transparent);
+  --ping: var(--color-cyan);
+}
 
+.ping-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: color-mix(in srgb, var(--ping) 60%, transparent);
+  animation: ping-soft 1.8s ease-out infinite;
 }
 
 @keyframes ping-soft {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
   70%,
   100% {
-    box-shadow: 0 0 0 10px transparent;
+    transform: scale(2.6);
+    opacity: 0;
   }
 }
 
@@ -278,6 +291,7 @@ html:has(.resume-dialog[open]) {
   .intro-ring > *,
   .wave,
   .ping-dot,
+  .ping-dot::after,
   .marquee,
   .logo-bob {
     animation: none;
@@ -290,6 +304,19 @@ html:has(.resume-dialog[open]) {
 .tile-in {
   animation: tile-in 0.6s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1)) both;
   animation-delay: calc(var(--i, 0) * 45ms);
+}
+
+/* The showreel poster is the largest thing on first paint: it slides in with the others but never
+   fades, so it is painted (and counted as loaded) straight away. */
+[data-tile="video"].tile-in {
+  animation-name: tile-in-solid;
+}
+
+@keyframes tile-in-solid {
+  from {
+    translate: 0 14px;
+    scale: 0.98;
+  }
 }
 
 @keyframes tile-in {
@@ -321,7 +348,6 @@ html:has(.resume-dialog[open]) {
   from {
     opacity: 0;
     translate: 0 0.5em;
-    filter: blur(3px);
   }
 }
 
@@ -369,6 +395,12 @@ html:has(.resume-dialog[open]) {
 }
 
 /* ───────── Hero card, video and scroll reveal ───────── */
+
+/* Endless loops inside an off-screen tile wait (see lib/offscreen.ts). Entrances are never paused. */
+[data-offscreen] :is(.marquee, .logo-bob, .icon-float, .badge-spin, .wave, .intro-ring, .intro-ring > *, .video-poster, .play-pulse),
+[data-offscreen] .ping-dot::after {
+  animation-play-state: paused;
+}
 
 .badge-spin {
   color: var(--color-ink);

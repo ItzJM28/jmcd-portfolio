@@ -72,3 +72,13 @@ it("gives project buttons no layout link of their own, so hovering mid-glide can
   // checked against the compiled component: no layoutId anywhere in a project tile
   expect(ProjectTile.toString().includes("layoutId")).toBe(false);
 });
+
+it("names each project tile from its visible text, so voice control matches what people see", () => {
+  const { container } = render(<BentoGrid />);
+  const btn = container.querySelector<HTMLButtonElement>('[data-tile="peraflow"] button[aria-haspopup]')!;
+  expect(btn.hasAttribute("aria-label")).toBe(false);
+  const name = btn.textContent!.replace(/\s+/g, " ");
+  expect(name).toContain("PeraFlow");
+  expect(name).toContain("Personal finance for the Philippines");
+  expect(name).toContain("View project");
+});
