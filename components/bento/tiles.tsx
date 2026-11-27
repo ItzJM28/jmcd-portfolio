@@ -5,9 +5,10 @@ import { type CSSProperties, useEffect, useRef, useState, type ReactNode } from 
 import { ResumeLink } from "@/components/resume-dialog";
 import { tech } from "@/components/tech-icon";
 import { education, experience, type Hue, profile, skills } from "@/lib/content";
+import { localTime } from "@/lib/local-time";
 import { tileSurface } from "./tile";
 
-export const focusRing = "focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-gold";
+export const focusRing = "focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-tuscan";
 const fill = `absolute inset-0 overflow-hidden ${tileSurface} ${focusRing}`;
 export const eyebrow = "font-mono text-[10px] uppercase tracking-[0.08em] text-ink-3";
 
@@ -69,14 +70,14 @@ export function CopyEmailTile() {
       <Chip>
         <Copy size={13} aria-hidden="true" />
       </Chip>
-      <span className="absolute bottom-4 left-4 text-[13px] font-semibold text-gold transition-transform duration-300 motion-safe:group-hover:translate-x-1">
+      <span className="absolute bottom-4 left-4 text-[13px] font-semibold text-tuscan transition-transform duration-300 motion-safe:group-hover:translate-x-1">
         Copy email
       </span>
     </button>
     <span
       role="status"
       aria-live="polite"
-      className={`pointer-events-none absolute left-1/2 top-3 -translate-x-1/2 whitespace-nowrap rounded-full bg-green px-2.5 py-1 text-[11px] font-semibold text-navy transition-all duration-300 motion-reduce:transition-none ${
+      className={`pointer-events-none absolute left-1/2 top-3 -translate-x-1/2 whitespace-nowrap rounded-full bg-emerald px-2.5 py-1 text-[11px] font-semibold text-navy transition-all duration-300 motion-reduce:transition-none ${
         copied ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
       }`}
     >
@@ -118,7 +119,7 @@ export function ToolkitTile() {
           const names = group.items.map((id) => tech[id].name).join(" · ") + " · ";
           return (
             <div key={group.label} className="overflow-hidden whitespace-nowrap font-mono text-xs font-semibold">
-              <div className={`marquee inline-block ${i % 2 ? "marquee-rev text-sandy" : "text-vanilla"}`}>
+              <div className={`marquee inline-block ${i % 2 ? "marquee-rev text-sandy" : "text-banana"}`}>
                 {names}
                 {names}
               </div>
@@ -131,11 +132,11 @@ export function ToolkitTile() {
 }
 
 const MARKER: Record<Hue, string> = {
-  terracotta: "bg-terracotta",
+  terracotta: "bg-grape",
   sandy: "bg-sandy",
-  gold: "bg-gold",
-  green: "bg-green",
-  blue: "bg-blue",
+  gold: "bg-tuscan",
+  green: "bg-emerald",
+  blue: "bg-cyan",
 };
 
 export function ExperienceTile() {
@@ -162,15 +163,38 @@ export function ExperienceTile() {
   );
 }
 
+/** A real map of Bacolod (built once by scripts/make-map.mjs) with a live local-time line. */
 export function LocationTile() {
+  // Local time only renders in the browser, so server HTML never shows a stale or mismatched time.
+  const [time, setTime] = useState<string | null>(null);
+  useEffect(() => {
+    const tick = () => setTime(localTime());
+    tick();
+    const id = setInterval(tick, 60_000);
+    return () => clearInterval(id);
+  }, []);
   return (
     <div className={fill}>
-      <div className="map-grid absolute inset-0" aria-hidden="true" />
+      {/* eslint-disable-next-line @next/next/no-img-element -- a small static image; no optimiser needed */}
+      <img
+        src="/map/bacolod-dark.webp"
+        alt="Map of Bacolod City, Philippines"
+        width={1200}
+        height={400}
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 size-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-navy-2 via-navy-2/30 to-transparent" aria-hidden="true" />
       <span
-        className="ping-dot ping-blue absolute left-[60%] top-[44%] size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue"
+        className="ping-dot ping-blue absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan ring-2 ring-navy"
         aria-hidden="true"
       />
-      <span className="absolute bottom-4 left-4 text-[13px] font-semibold">{profile.locationShort}</span>
+      <span className="absolute bottom-4 left-4">
+        <span className="block text-[13px] font-semibold">{profile.locationShort}</span>
+        <span className="block font-mono text-[11px] text-ink-2">{time ? `${time} in Bacolod` : " "}</span>
+      </span>
+      <span className="absolute bottom-1.5 right-3 text-[9px] text-ink-3">© OpenStreetMap contributors</span>
     </div>
   );
 }
@@ -178,7 +202,7 @@ export function LocationTile() {
 export function ResumeTile() {
   return (
     <ResumeLink
-      className="absolute inset-0 rounded-[22px] bg-gold p-4 text-navy transition-[filter] hover:brightness-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+      className="absolute inset-0 rounded-[22px] bg-tuscan p-4 text-navy transition-[filter] hover:brightness-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tuscan"
     >
       <span className="absolute right-3 top-3 grid size-7 place-items-center rounded-full bg-navy/10">
         <ArrowUpRight size={14} aria-hidden="true" />

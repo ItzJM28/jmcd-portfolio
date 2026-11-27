@@ -25,7 +25,7 @@ export function IntroCard() {
   const badgeTurn = useTransform(scrollYProgress, [0, 1], [0, 180]);
 
   return (
-    <div ref={ref} className="absolute inset-0 overflow-hidden rounded-[22px] bg-blue">
+    <div ref={ref} className="absolute inset-0 overflow-hidden rounded-[22px] bg-grape">
       <span className="absolute left-0 top-0 z-10 flex items-center gap-1.5 rounded-br-[18px] bg-navy py-2 pl-4 pr-4 text-xs font-semibold">
         <span aria-hidden="true">✦</span> About me
       </span>
@@ -40,7 +40,7 @@ export function IntroCard() {
           {/* Sticker badge on the photo ring. */}
           <motion.div
             style={{ rotate: badgeTurn }}
-            className="absolute -bottom-4 -right-8 grid size-[64px] place-items-center rounded-full bg-navy ring-4 ring-blue sm:size-[72px]"
+            className="absolute -bottom-4 -right-8 grid size-[64px] place-items-center rounded-full bg-navy ring-4 ring-grape sm:size-[72px]"
             aria-hidden="true"
           >
             <svg viewBox="0 0 100 100" className="badge-spin absolute inset-0">
@@ -148,7 +148,7 @@ export function VideoTile({ src, poster, label = "Showreel" }: { src?: string; p
       <span
         role="status"
         aria-live="polite"
-        className={`pointer-events-none absolute left-1/2 top-4 -translate-x-1/2 whitespace-nowrap rounded-full bg-gold px-3 py-1 text-xs font-semibold text-navy transition-all duration-300 motion-reduce:transition-none ${
+        className={`pointer-events-none absolute left-1/2 top-4 -translate-x-1/2 whitespace-nowrap rounded-full bg-tuscan px-3 py-1 text-xs font-semibold text-navy transition-all duration-300 motion-reduce:transition-none ${
           said ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         }`}
       >
@@ -185,7 +185,7 @@ export function CountUp({ to }: { to: number }) {
   return <span ref={ref}>{to}</span>;
 }
 
-const TONE = { vanilla: "bg-vanilla", green: "bg-green" } as const;
+const TONE = { vanilla: "bg-banana", green: "bg-emerald" } as const;
 
 export function StatTile({ value, label, tone }: { value: number; label: string; tone: keyof typeof TONE }) {
   return (

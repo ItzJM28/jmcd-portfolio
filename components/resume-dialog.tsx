@@ -50,9 +50,9 @@ export function ResumeDialog() {
     >
       <header className="flex items-center gap-3 border-b border-line px-4 py-3 sm:px-5">
         <span className="hidden gap-2 sm:flex" aria-hidden="true">
-          <span className="size-3 rounded-full bg-terracotta" />
-          <span className="size-3 rounded-full bg-gold" />
-          <span className="size-3 rounded-full bg-green" />
+          <span className="size-3 rounded-full bg-grape" />
+          <span className="size-3 rounded-full bg-tuscan" />
+          <span className="size-3 rounded-full bg-emerald" />
         </span>
         <h2 id="resume-title" className="min-w-0 flex-1 truncate font-mono text-sm text-ink-2 sm:ml-2">
           Resume_Demonteverde.pdf
@@ -60,7 +60,7 @@ export function ResumeDialog() {
         <a
           href={profile.resume}
           download
-          className="inline-flex h-9 items-center gap-2 bg-gold px-3.5 text-sm font-medium text-navy transition-colors hover:bg-vanilla"
+          className="inline-flex h-9 items-center gap-2 bg-tuscan px-3.5 text-sm font-medium text-navy transition-colors hover:bg-banana"
         >
           <Download size={16} aria-hidden="true" />
           <span className="hidden sm:inline">Download</span>

@@ -1,24 +1,28 @@
 @import "tailwindcss";
 
 @theme {
-  /* The site's colours: background, white text, and the palette accents. */
-  --color-navy: #0c120c; /* page background */
+  /* The JD Creates colour scheme (jdcreates.vercel.app): a charcoal base, warm off-white
+     text, and a ten-colour accent run from grape through greens to sandy. */
+  --color-navy: #1d1d20; /* page background (charcoal) */
+  --color-navy-2: #27272b; /* tiles and surfaces */
+  --color-navy-3: #313136; /* raised details: chips, map grid */
+  --color-line: #3a3a40;
   --color-white: #ffffff;
-  --color-vanilla: #f2f3ae; /* Vanilla Custard */
-  --color-gold: #edd382; /* Light Gold */
-  --color-sandy: #fc9e4f; /* Sandy Brown */
-  --color-terracotta: #f4442e; /* Fiery Terracotta */
-  --color-green: #16db65;
-  --color-blue: #2176ff;
 
-  /* Text is white; softer steps are white mixed into the background,
-     never new hues. Vanilla Custard stays as an accent colour. */
-  --color-ink: var(--color-white);
-  --color-ink-2: color-mix(in srgb, #ffffff 72%, #0c120c);
-  --color-ink-3: color-mix(in srgb, #ffffff 52%, #0c120c);
-  --color-navy-2: color-mix(in srgb, #ffffff 4%, #0c120c);
-  --color-navy-3: color-mix(in srgb, #ffffff 12%, #0c120c);
-  --color-line: color-mix(in srgb, #ffffff 14%, #0c120c);
+  --color-ink: #f2f0eb; /* warm off-white text */
+  --color-ink-2: #c9c7c3; /* secondary text, between ink and muted */
+  --color-ink-3: #a3a3ab; /* muted text */
+
+  --color-grape: #54478c;
+  --color-baltic: #2c699a;
+  --color-cyan: #048ba8;
+  --color-ocean: #0db39e;
+  --color-emerald: #16db93;
+  --color-lightgreen: #83e377;
+  --color-lime: #b9e769;
+  --color-banana: #efea5a;
+  --color-tuscan: #f1c453;
+  --color-sandy: #f29e4c;
 
   --font-display: var(--font-inter), -apple-system, BlinkMacSystemFont, ui-sans-serif, sans-serif;
   --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, ui-sans-serif, system-ui, sans-serif;
@@ -41,16 +45,16 @@
     font-family: var(--font-sans);
     font-feature-settings: "ss01";
     text-rendering: optimizeLegibility;
-    caret-color: var(--color-gold);
+    caret-color: var(--color-tuscan);
   }
 
   ::selection {
-    background: var(--color-gold);
+    background: var(--color-tuscan);
     color: var(--color-navy);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-blue);
+    outline: 2px solid var(--color-cyan);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -83,11 +87,11 @@
   transform: scaleX(0);
   background: linear-gradient(
     90deg,
-    var(--color-terracotta),
+    var(--color-grape),
     var(--color-sandy),
-    var(--color-gold),
-    var(--color-green),
-    var(--color-blue)
+    var(--color-tuscan),
+    var(--color-emerald),
+    var(--color-cyan)
   );
 }
 
@@ -173,12 +177,12 @@ html:has(.resume-dialog[open]) {
 
 .intro-ring {
   background: conic-gradient(
-    var(--color-green),
-    var(--color-blue),
+    var(--color-emerald),
+    var(--color-cyan),
     var(--color-sandy),
-    var(--color-terracotta),
-    var(--color-gold),
-    var(--color-green)
+    var(--color-grape),
+    var(--color-tuscan),
+    var(--color-emerald)
   );
   animation: ring-spin 10s linear infinite;
 }
@@ -206,12 +210,12 @@ html:has(.resume-dialog[open]) {
 }
 
 .ping-dot {
-  box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-green) 60%, transparent);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-emerald) 60%, transparent);
   animation: ping-soft 1.8s ease-out infinite;
 }
 
 .ping-blue {
-  box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-blue) 60%, transparent);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-cyan) 60%, transparent);
 
 }
 
@@ -238,7 +242,7 @@ html:has(.resume-dialog[open]) {
 
 .map-grid {
   background:
-    radial-gradient(circle at 60% 44%, color-mix(in srgb, var(--color-blue) 30%, transparent), transparent 55%),
+    radial-gradient(circle at 60% 44%, color-mix(in srgb, var(--color-cyan) 30%, transparent), transparent 55%),
     repeating-linear-gradient(0deg, var(--color-navy-3) 0 1px, transparent 1px 18px),
     repeating-linear-gradient(90deg, var(--color-navy-3) 0 1px, transparent 1px 18px);
   opacity: 0.8;
@@ -258,7 +262,7 @@ html:has(.resume-dialog[open]) {
    only when the visitor allows motion. */
 .group:hover .chip,
 .group:focus-visible .chip {
-  background: var(--color-gold);
+  background: var(--color-tuscan);
   color: var(--color-navy);
 }
 
@@ -373,9 +377,9 @@ html:has(.resume-dialog[open]) {
 
 .video-poster {
   background:
-    radial-gradient(60% 70% at 28% 35%, color-mix(in srgb, var(--color-blue) 55%, transparent), transparent 60%),
+    radial-gradient(60% 70% at 28% 35%, color-mix(in srgb, var(--color-cyan) 55%, transparent), transparent 60%),
     radial-gradient(50% 60% at 76% 70%, color-mix(in srgb, var(--color-sandy) 50%, transparent), transparent 60%),
-    radial-gradient(40% 50% at 62% 18%, color-mix(in srgb, var(--color-green) 35%, transparent), transparent 60%),
+    radial-gradient(40% 50% at 62% 18%, color-mix(in srgb, var(--color-emerald) 35%, transparent), transparent 60%),
     var(--color-navy-2);
   background-size: 140% 140%;
   animation: poster-drift 14s ease-in-out infinite alternate;

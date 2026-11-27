@@ -79,7 +79,7 @@ export const projects: Project[] = [
   {
     slug: "jdcreates",
     logo: "jdcreates",
-    glow: "var(--color-gold)",
+    glow: "var(--color-tuscan)",
     title: "JD Creates",
     summary: "My graphic design portfolio, built as a bento grid.",
     detail:

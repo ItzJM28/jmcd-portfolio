@@ -21,7 +21,7 @@ Front-End Developer (confirmed by the user, 2026-11-25). Not pitched as a graphi
 - Tech icons come from `@dev.icons/react` (devicons.io), chosen by the user.
 
 ## Brand Commitments
-- Colours chosen by the user (2026-11-25): page background #0C120C, white main text (softer steps are white mixed into the background), accents only from Vanilla Custard #F2F3AE, Light Gold #EDD382, Sandy Brown #FC9E4F, Fiery Terracotta #F4442E, green #16DB65 and blue #2176FF. No other hues. Geometric shapes remain as accents.
+- Colours chosen by the user (2026-11-27): the JD Creates scheme (jdcreates.vercel.app). Charcoal background #1D1D20, surface #27272B, line #3A3A40, warm off-white text #F2F0EB, muted text #A3A3AB. Accents only from grape #54478C, baltic #2C699A, cyan #048BA8, ocean #0DB39E, emerald #16DB93, light green #83E377, lime #B9E769, banana #EFEA5A, tuscan #F1C453 and sandy #F29E4C. Project logos keep their own colours. The user dropped geometric decoration shapes on 2026-11-27.
 
 ## Evidence on Hand
 - Projects (all confirmed by the user to show): PeraFlow (formerly Penny Budget, peraflowph.vercel.app, repo budget-app), JD Creates, the graphic design portfolio (jdcreates.vercel.app, repo graphic-design-portfolio; replaced Hiraya's Grill on 2026-11-26), Free QR Code Generator (qr-gf.vercel.app), Lynko (repo only, no live URL).

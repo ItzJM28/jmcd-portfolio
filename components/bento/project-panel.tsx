@@ -10,7 +10,7 @@ import type { Project } from "@/lib/content";
 import { ProjectLogo } from "./project-logo";
 
 const button =
-  "inline-flex h-10 items-center gap-1.5 rounded-lg px-4 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold";
+  "inline-flex h-10 items-center gap-1.5 rounded-lg px-4 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tuscan";
 
 /**
  * A project's details. It scales and fades in over the page (no shared layout with the tile:
@@ -72,7 +72,7 @@ export function ProjectPanel({ project, onClose }: { project: Project; onClose: 
             type="button"
             onClick={onClose}
             aria-label="Close"
-            className="grid size-9 place-items-center rounded-full bg-navy-3 text-ink-2 transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-gold"
+            className="grid size-9 place-items-center rounded-full bg-navy-3 text-ink-2 transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-tuscan"
           >
             <X size={18} aria-hidden="true" />
           </button>
@@ -110,7 +110,7 @@ export function ProjectPanel({ project, onClose }: { project: Project; onClose: 
 
           <div className="mt-6 flex flex-wrap gap-2.5">
             {project.liveUrl && (
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={`${button} bg-gold text-navy hover:brightness-105`}>
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={`${button} bg-tuscan text-navy hover:brightness-105`}>
                 Visit site <ArrowUpRight size={16} aria-hidden="true" />
               </a>
             )}

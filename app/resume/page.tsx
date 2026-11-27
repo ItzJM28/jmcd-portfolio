@@ -20,7 +20,7 @@ export default function ResumePage() {
         <a
           href={profile.resume}
           download
-          className="inline-flex h-12 items-center justify-center gap-2 bg-gold px-5 font-medium text-navy transition-colors hover:bg-vanilla"
+          className="inline-flex h-12 items-center justify-center gap-2 bg-tuscan px-5 font-medium text-navy transition-colors hover:bg-banana"
         >
           <Download size={18} aria-hidden="true" />
           Download PDF
@@ -33,7 +33,7 @@ export default function ResumePage() {
             <p className="max-w-md">
               Your browser can’t show the PDF here. Download it to read the résumé.
             </p>
-            <a href={profile.resume} download className="font-medium text-gold underline decoration-2">
+            <a href={profile.resume} download className="font-medium text-tuscan underline decoration-2">
               Download PDF
             </a>
           </div>

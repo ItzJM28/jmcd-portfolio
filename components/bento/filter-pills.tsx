@@ -8,7 +8,7 @@ import { useFilter } from "@/lib/use-filter";
 
 const LABEL: Record<Filter, string> = { all: "All", about: "About", work: "Work", contact: "Contact" };
 
-const focus = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold";
+const focus = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tuscan";
 
 const STYLE = {
   horizontal: {
@@ -50,7 +50,7 @@ export function FilterPills({ vertical = false }: { vertical?: boolean }) {
               <motion.span
                 layoutId={vertical ? "side-pill" : "pill"}
                 aria-hidden="true"
-                className="absolute inset-0 rounded-full bg-gold"
+                className="absolute inset-0 rounded-full bg-tuscan"
                 transition={{ type: "spring", stiffness: 420, damping: 34 }}
               />
             )}
