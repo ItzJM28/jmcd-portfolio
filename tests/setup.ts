@@ -1,5 +1,9 @@
 import { cleanup } from "@testing-library/react";
+import { MotionGlobalConfig } from "motion/react";
 import { afterEach } from "vitest";
+
+// jsdom cannot run animations to completion, so exits would never finish.
+MotionGlobalConfig.skipAnimations = true;
 
 afterEach(() => {
   cleanup();
