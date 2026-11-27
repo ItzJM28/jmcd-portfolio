@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { RevealObserver } from "@/components/motion";
 import { ResumeDialog } from "@/components/resume-dialog";
+import { MotionRoot } from "@/components/bento/motion-root";
 
 // Fonts are self-hosted (Latin variable files in app/fonts) so builds never
 // depend on fetching from Google Fonts.
@@ -65,8 +66,10 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <SiteHeader />
-        <main id="main">{children}</main>
+        <MotionRoot>
+          <SiteHeader />
+          <main id="main">{children}</main>
+        </MotionRoot>
         <SiteFooter />
         <ResumeDialog />
       </body>

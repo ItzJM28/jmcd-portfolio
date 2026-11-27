@@ -304,3 +304,108 @@ html:has(.resume-dialog[open]) {
     clip-path: none;
   }
 }
+
+/* ───────── Bento tiles ─────────
+   Small looping touches. All of them stop for reduced motion. */
+
+.intro-ring {
+  background: conic-gradient(
+    var(--color-green),
+    var(--color-blue),
+    var(--color-sandy),
+    var(--color-terracotta),
+    var(--color-gold),
+    var(--color-green)
+  );
+  animation: ring-spin 10s linear infinite;
+}
+
+/* The badge inside the ring stays upright while the ring turns. */
+.intro-ring > * {
+  animation: ring-spin 10s linear infinite reverse;
+}
+
+@keyframes ring-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.wave {
+  transform-origin: 70% 70%;
+  animation: wave 2.4s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 60%, 100% { rotate: 0deg; }
+  10%, 30% { rotate: 14deg; }
+  20%, 40% { rotate: -8deg; }
+}
+
+.ping-dot {
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-green) 60%, transparent);
+  animation: ping-soft 1.8s ease-out infinite;
+}
+
+.ping-blue {
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-blue) 60%, transparent);
+
+}
+
+@keyframes ping-soft {
+  70%,
+  100% {
+    box-shadow: 0 0 0 10px transparent;
+  }
+}
+
+.marquee {
+  animation: marquee 18s linear infinite;
+}
+
+.marquee-rev {
+  animation-direction: reverse;
+}
+
+@keyframes marquee {
+  to {
+    translate: -50% 0;
+  }
+}
+
+.map-grid {
+  background:
+    radial-gradient(circle at 60% 44%, color-mix(in srgb, var(--color-blue) 30%, transparent), transparent 55%),
+    repeating-linear-gradient(0deg, var(--color-navy-3) 0 1px, transparent 1px 18px),
+    repeating-linear-gradient(90deg, var(--color-navy-3) 0 1px, transparent 1px 18px);
+  opacity: 0.8;
+}
+
+.logo-bob {
+  animation: bob 5s ease-in-out infinite;
+}
+
+@keyframes bob {
+  50% {
+    translate: 0 -4px;
+  }
+}
+
+/* Corner chip turns gold and swings round when its tile is hovered or focused. */
+.group:hover .chip,
+.group:focus-visible .chip {
+  background: var(--color-gold);
+  color: var(--color-navy);
+  rotate: 45deg;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-ring,
+  .intro-ring > *,
+  .wave,
+  .ping-dot,
+  .marquee,
+  .logo-bob {
+    animation: none;
+  }
+}
